@@ -563,16 +563,16 @@
                                                                                     Menetap dengan --</option>
                                                                                 <option
                                                                                     {{ Auth::user()->siswas->MenetapDengan == 'orangtuakandung' ? 'selected' : '' }}
-                                                                                    value="orangtuakandung">Orang Tua
+                                                                                    value="orang tua kandung">Orang Tua
                                                                                     Kandung
                                                                                 </option>
                                                                                 <option
                                                                                     {{ Auth::user()->siswas->MenetapDengan == 'orangtuaangkat' ? 'selected' : '' }}
-                                                                                    value="orangtuaangkat">Orang Tua Angkat
+                                                                                    value="orang tua angkat">Orang Tua Angkat
                                                                                 </option>
                                                                                 <option
                                                                                     {{ Auth::user()->siswas->MenetapDengan == 'kakeknenek' ? 'selected' : '' }}
-                                                                                    value="kakeknenek">Kakek/Nenek</option>
+                                                                                    value="kakek nenek">Kakek/Nenek</option>
                                                                                 <option
                                                                                     {{ Auth::user()->siswas->MenetapDengan == 'lainnya' ? 'selected' : '' }}
                                                                                     value="lainnya">Wali Lainnya
