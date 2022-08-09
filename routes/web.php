@@ -33,6 +33,7 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/admin/santri', [AdminController::class, 'listprofil']);
     Route::get('/admin/santri/profil/{id}', [AdminController::class, 'profil']);
     Route::post('/admin/batalkonfirmasiformulir', [AdminController::class, 'batalkonfirmasiformulir']);
+    Route::get('/admin/santri/print/{id}', [AdminController::class, 'printformulir']);
     Route::get('/admin/santri/berkas/{id}', [AdminController::class, 'berkas']);
     //status kelulusan
     Route::get('/admin/status', [AdminController::class, 'listkelulusan']);

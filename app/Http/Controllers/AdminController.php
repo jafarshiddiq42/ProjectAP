@@ -50,6 +50,14 @@ class AdminController extends Controller
         $siswa->save();
         return redirect()->back();
     }
+    public function printformulir($id )
+    {
+        $siswa = Siswa::find($id);
+
+        // dd($siswa);
+        return view('pages.admin.profilsantri.print' ,compact('siswa'));
+
+    }
 
     // 3.3 berkas user
     public function berkas($id)
