@@ -8,12 +8,12 @@
         <meta name="description" content="" />
         {{-- <meta http-equiv="refresh" content="4"> --}}
 
+        @yield('css')
         <meta name="author" content="" />
         <title>Darul Ihsan Boarding</title>
         <link href="{{ asset('sbadmin/css/customcss.css') }}" rel="stylesheet" />
         <link href="{{ asset('sbadmin/css/styles.css') }}" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/03296025ab.js" crossorigin="anonymous"></script>
-        @yield('css')
         <link rel="icon" type="image/x-icon" href="{{ asset('darulihsan.png') }}" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
@@ -135,7 +135,7 @@
                 </footer>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> --}}
         <script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
