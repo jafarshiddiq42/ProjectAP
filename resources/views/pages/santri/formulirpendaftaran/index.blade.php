@@ -89,7 +89,7 @@
                                                                             <label class="small mb-1"
                                                                                 for="inputFirstName">Nama
                                                                                 Lengkap</label>
-                                                                            <input class="form-control" id="inputFirstName"
+                                                                            <input class="form-control " id="inputFirstName"
                                                                                 type="text"
                                                                                 value="@if (Auth::user()->siswas->NamaLengkap != '') {{ Auth::user()->siswas->NamaLengkap }} @endif"
                                                                                 name="namalengkap"
@@ -236,7 +236,7 @@
 
                                                             <ul class="list-inline  mt-4" style="float: right">
                                                                 <li><button type="button"
-                                                                        class="btn btn-primary next-step">continue</button>
+                                                                        class="btn btn-primary next-step">Selanjutnya</button>
                                                                 </li>
                                                             </ul>
 
@@ -420,10 +420,10 @@
                                                                 <div class="col"></div>
                                                                 <div class="col d-flex justify-content-end">
                                                                     <button type="button"
-                                                                        class="btn btn-default prev-step">Previous</button>
+                                                                        class="btn btn-warning mx-2 btn-default prev-step">Sebelumnya</button>
                                                                     <button type="button"
                                                                         class="btn btn-primary next-step">
-                                                                        continue</button>
+                                                                        Selanjutnya</button>
                                                                 </div>
 
                                                             </div>
@@ -487,10 +487,10 @@
                                                                 <div class="col"></div>
                                                                 <div class="col d-flex justify-content-end">
                                                                     <button type="button"
-                                                                        class="btn btn-default prev-step">Previous</button>
+                                                                        class="btn btn-warning mx-2 btn-default prev-step">Sebelumnya</button>
                                                                     <button type="button"
                                                                         class="btn btn-primary next-step">
-                                                                        continue</button>
+                                                                        Selanjutnya</button>
                                                                 </div>
 
                                                             </div>
@@ -610,13 +610,14 @@
                                                             <div class="row">
                                                                 <div class="col"></div>
                                                                 <div class="col d-flex justify-content-end">
-
+                                                                    <button type="button"
+                                                                    class="btn btn-default mx-2 btn-warning prev-step">Sebelumnya</button>
                                                                     <button type="submit"
                                                                         class="btn btn-success next-step">
                                                                         Simpan</button>
                                                                     <a href="#" class="mx-2 btn btn-primary"
                                                                         data-bs-toggle="modal"
-                                                                        data-bs-target="#k">Konfirmasi</a>
+                                                                        data-bs-target="#k">Verivikasi</a>
                                                                     <div class="modal fade" id="k" tabindex="-1"
                                                                         role="dialog" aria-labelledby="exampleModalLabel"
                                                                         aria-hidden="true">

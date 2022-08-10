@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/kartupendaftaran/print',[UserController::class,'kartuprint']);
 // pengumuman
     Route::get('/pengumuman', [UserController::class,'pengumuman']);
+    Route::get('/pengumumankelulusan', [UserController::class,'pengumumansemua']);
 // daftarulang
     Route::get('/daftarulang',[UserController::class,'daftarulang']);
 // pin

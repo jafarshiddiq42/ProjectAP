@@ -115,6 +115,15 @@ class UserController extends Controller
         return view('pages.santri.pengumuman.index');
 
     }
+    public function pengumumansemua()
+    {
+        $nomor = 1;
+        $siswas =user::where('id_lewat','=',2)->get();
+
+        // dd($siswas);
+        return view('pages.santri.pengumuman.pengumuman',compact('siswas','nomor'));
+
+    }
     // 4.daftarulang
     public function daftarulang()
     {
