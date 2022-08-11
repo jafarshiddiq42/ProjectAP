@@ -83,20 +83,39 @@ class AdminController extends Controller
             ->where('users.is_admin','!=',1)
             ->where('siswas.confirmed','=',1)
             ->count();
-        $users = User::all()->except(Auth::id()); 
+        $users = User::all()->where('is_admin','!=',1); 
         // dd($hitungtaktentu);
         return view('pages.admin.kelulusansantri.index' ,compact('users','hitungtaktentu'));
     }
     
     // 4.2 menentukan kelulusan
-    public function updatestatus(Request $request ,$id)
+    public function updatestatus(Request $request )
+    {
+        // $user = User::find($id);
+        // $user->id_lewat = $request->statuslulus;
+        // $user->save();
+        // $tes=$request->all();
+        $tes=$request->idterpilih;
+        foreach ($tes as $data) {
+            $user = User::where('id','=',$data)->first();
+            $user->id_lewat = $request->statuslulus;
+            $user->save();
+        }
+
+
+        // dd($tes);
+        return redirect()->back();
+    }
+    public function statusbatal($id)
     {
         $user = User::find($id);
-        $user->id_lewat = $request->statuslulus;
+        $user->id_lewat = 1;
         $user->save();
         return redirect()->back();
     }
 
+
+    // akhir
     public function listberkas()
     {
         $users = User::all()->except(Auth::id()); 

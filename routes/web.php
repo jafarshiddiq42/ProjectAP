@@ -37,7 +37,8 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/admin/santri/berkas/{id}', [AdminController::class, 'berkas']);
     //status kelulusan
     Route::get('/admin/status', [AdminController::class, 'listkelulusan']);
-    Route::post('/admin/lulus/{id}', [AdminController::class, 'updatestatus']);
+    Route::post('/admin/lulus', [AdminController::class, 'updatestatus']);
+    Route::get('/admin/batal/{id}', [AdminController::class, 'statusbatal']);
 
     //berkas daftar ulang
     Route::get('/admin/daftarulang', [AdminController::class, 'listberkas']);
