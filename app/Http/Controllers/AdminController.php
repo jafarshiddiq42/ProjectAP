@@ -77,8 +77,15 @@ class AdminController extends Controller
     // 4.kelulusan pendaftar
     public function listkelulusan()
     {
+        // $hitungtaktentu = User::where('id_lewat','=',1)->where('is_admin','!=',1)->count();
+        $hitungtaktentu = User::join('siswas','siswas.id','users.id_santri')
+            ->where('users.id_lewat','=',1)
+            ->where('users.is_admin','!=',1)
+            ->where('siswas.confirmed','=',1)
+            ->count();
         $users = User::all()->except(Auth::id()); 
-        return view('pages.admin.kelulusansantri.index' ,compact('users'));
+        // dd($hitungtaktentu);
+        return view('pages.admin.kelulusansantri.index' ,compact('users','hitungtaktentu'));
     }
     
     // 4.2 menentukan kelulusan

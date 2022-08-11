@@ -46,7 +46,7 @@
                     </thead>
                     <tbody>
                         @forelse ($users as $user)
-                        @if ($user->id_lewat == 2)
+                        @if ($user->id_lewat == 2 and $user->siswas->confirmed == 1)
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">

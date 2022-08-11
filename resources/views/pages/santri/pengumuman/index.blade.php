@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class=" d-flex justify-content-end">
-                                    <a href="#" class="mb-1 btn btn-primary"> <i
+                                    <a href="/pengumumankelulusan" class="mb-1 btn btn-primary"> <i
                                             class="fa-solid fa-list-check "></i><span class="mx-2">Pengumuman
                                             Keseluruhan</span></a>
 

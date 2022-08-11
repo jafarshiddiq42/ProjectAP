@@ -29,44 +29,59 @@
         </header>
         <!-- Main page content-->
         <div class="container-fluid px-4">
-            <div class="card">
+            <div class="row">
+                @if ($hitungtaktentu > 0)
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title  mb-4">Belum Ditetapkan</h4>
 
-                <div class="card-body">
-                    <table id="datatablesSimple" class="">
-                        <thead>
-                            <tr>
-
-                                <th>Nama Santri</th>
-                                <th>No Pendaftaran</th>
-                                <th>NISN</th>
-                                <th>Instansi Pilihan</th>
-                                <th class="text-center">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($users as $user)
-                                @if ($user->siswas->confirmed == 1)
+                            <table id="datatablesSimple" class="">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="avatar me-2"><img class="avatar-img img-fluid"
-                                                        src="@if ($user->siswas->JKelamin == 'L') {{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }} @else {{ asset('sbadmin/assets/img/illustrations/profiles/profile-1.png') }} @endif" />
-                                                </div>
-                                                {{ $user->siswas->NamaLengkap }}
-                                            </div>
-                                        </td>
-                                        <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
-                                        <td>{{ $user->siswas->NISN }}</td>
-                                        <td>
-                                            @if ($user->siswas->Instansi == 'SMK')
-                                                <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan</div>
-                                            @elseif($user->siswas->Instansi == 'MAN')
-                                                <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
-                                            @else
-                                                <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah</div>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">
+
+                                        <th>Opsi</th>
+                                        <th>Nama Santri</th>
+                                        <th>No Pendaftaran</th>
+                                        <th>NISN</th>
+                                        <th>Instansi Pilihan</th>
+                                        {{-- <th class="text-center">Aksi</th> --}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($users as $user)
+                                        @if ($user->siswas->confirmed == 1 and $user->id_lewat == 1)
+                                            <tr>
+                                                <td class="d-flex justify-content-center">
+                                                    <div class="form-check form-check-solid ">
+                                                        <input class="form-check-input" style="width: 20px;height:20px"
+                                                            id="flexCheckSolidDefault" name="[]" type="checkbox"
+                                                            value="">
+
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar me-2"><img class="avatar-img img-fluid"
+                                                                src="@if ($user->siswas->JKelamin == 'L') {{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }} @else {{ asset('sbadmin/assets/img/illustrations/profiles/profile-1.png') }} @endif" />
+                                                        </div>
+                                                        {{ $user->siswas->NamaLengkap }}
+                                                    </div>
+                                                </td>
+                                                <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
+                                                <td>{{ $user->siswas->NISN }}</td>
+                                                <td>
+                                                    @if ($user->siswas->Instansi == 'SMK')
+                                                        <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan
+                                                        </div>
+                                                    @elseif($user->siswas->Instansi == 'MAN')
+                                                        <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
+                                                    @else
+                                                        <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                                {{-- <td class="text-center">
                                             <form action="/admin/lulus/{{ $user->id }}" method="post">
                                                 @csrf
                                                 <select name="statuslulus" id="" class="form-control form-control-sm" onchange="this.form.submit()">
@@ -80,23 +95,112 @@
                                                         value="4">Lulus Cadangan</option>
                                                 </select>
                                             </form>
-                                        </td>
-                                    </tr>
-                                @endif
-                            @empty
-                            @endforelse
+                                        </td> --}}
+                                            </tr>
+                                        @endif
+                                    @empty
+                                    @endforelse
 
 
-                        </tbody>
-                    </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-collapsable">
+                                <a class="card-header" href="#lulus" data-bs-toggle="collapse" role="button"
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Lulus
+                                    <div class="card-collapsable-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse show" id="lulus">
+                                    <div class="card-body">
+                                        <table id="datatablesSimple" class="table">
+                                            <thead>
+                                                <tr>
+            
+                                                
+                                                    <th>Nama Santri</th>
+                                                    <th>No Pendaftaran</th>
+                                                    {{-- <th>NISN</th> --}}
+                                                    <th>Instansi Pilihan</th>
+                                                    {{-- <th class="text-center">Aksi</th> --}}
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse ($users as $user)
+                                                    @if ($user->siswas->confirmed == 1 and $user->id_lewat == 2)
+                                                        <tr>
+                                                            
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="avatar me-2"><img class="avatar-img img-fluid"
+                                                                            src="@if ($user->siswas->JKelamin == 'L') {{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }} @else {{ asset('sbadmin/assets/img/illustrations/profiles/profile-1.png') }} @endif" />
+                                                                    </div>
+                                                                    {{ $user->siswas->NamaLengkap }}
+                                                                </div>
+                                                            </td>
+                                                            <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
+                                                            {{-- <td>{{ $user->siswas->NISN }}</td> --}}
+                                                            <td>
+                                                                @if ($user->siswas->Instansi == 'SMK')
+                                                                    <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan
+                                                                    </div>
+                                                                @elseif($user->siswas->Instansi == 'MAN')
+                                                                    <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
+                                                                @else
+                                                                    <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah
+                                                                    </div>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <a href="" onclick="event.preventDefault();" class="btn btn-datatable px-4  btn-icon btn-danger"><i class="fa-solid fa-eject"></i></a>
+
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @empty
+                                                @endforelse
+            
+            
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-collapsable">
+                                <a class="card-header" href="#collapseCardExample" data-bs-toggle="collapse" role="button"
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Gagal
+                                    <div class="card-collapsable-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse show" id="collapseCardExample">
+                                    <div class="card-body">
+                                        ...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 @endsection
 @section('Script')
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
     <script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>

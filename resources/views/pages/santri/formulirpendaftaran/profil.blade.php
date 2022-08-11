@@ -1,4 +1,4 @@
-@extends('layouts.adminmaster')
+@extends('layouts.usermaster')
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link href="{{ asset('sbadmin/css/styles.css') }}" rel="stylesheet" />
@@ -196,12 +196,14 @@
                                     <div class="col col-xs-3">: {{ $user->siswas->status }}</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col col-xs-1">Menetap dengan </div>
-                                    <div class="col col-xs-3">: {{ $user->siswas->MenetapDengan }}</div>
+                                    <div class="col col-xs-1">Menetap dengan</div>
+                                    <div class="col d-flex col-xs-3" style="">: <div class="" style="white-space: nowrap; overflow: auto;"> {{ $user->siswas->MenetapDengan }}</div></div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-xs-1">Alamat </div>
-                                    <div class="col col-xs-3">: {{ $user->siswas->Alamat }}</div>
+                                    <div class="col d-flex  overflow-auto col-xs-3">: <div style="
+                                        overflow: auto;
+                                        white-space: nowrap;"> {{ $user->siswas->Alamat }}</div></div>
                                 </div>
                                 <div class="row">
                                     <div class="col col-xs-1">Tinggi Badan </div>
@@ -221,8 +223,8 @@
 </main>
 @endsection
 @section('Script')
-{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> --}}
-<script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+{{-- <script src="{{ asset('sbadmin/js/scripts.js') }}"></script> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script>
