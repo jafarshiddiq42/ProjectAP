@@ -61,6 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pengumumankelulusan', [UserController::class,'pengumumansemua']);
 // daftarulang
     Route::get('/daftarulang',[UserController::class,'daftarulang']);
+    Route::post('/daftarulang',[UserController::class,'daftarulangsubmit']);
 // pin
     Route::get('/pin', function () {
     });

@@ -66,8 +66,8 @@
                             @endif
                             </td>
                             <td class="text-center" ><a href="/admin/santri/berkas/{{ $user->id }}" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i></a></td>
-                            <td class="text-center" > <a href="#" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#i1"><i class="fa-solid fa-money-check"></i></a>
-                                <div class="modal fade" id="i1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <td class="text-center" > <a href="#" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#i{{ $user->id }}"><i class="fa-solid fa-money-check"></i></a>
+                                <div class="modal fade" id="i{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -76,7 +76,8 @@
                                             </div>
                                             <div class="modal-body d-flex justify-content-center">
                                                 <div style="width: 8cm">
-                                                <img src="{{ asset('images/contohbukti.jpeg') }}" style="width:-webkit-fill-available" alt="">
+                                                    {{-- {{ $user->dftrulangs->id }} --}}
+                                                <img src="{{ asset($user->dftrulangs->buktipembayaran) }}" style="width:-webkit-fill-available" alt="">
                                                  </div>
                                             </div>
                                             <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button></div>

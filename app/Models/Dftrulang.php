@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dftrulang extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+
+    public function users()
+    {
+        return $this->belongTo(user::class);
+    }
 }

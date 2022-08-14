@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('dftrulangs', function (Blueprint $table) {
             $table->id();
 
+            $table->boolean('confirmed')->default(false);
             $table->string('buktipembayaran')->default('default.jpg');
             $table->string('foto_nisn')->default('default.jpg');
             $table->string('ktp_ayah')->default('default.jpg');

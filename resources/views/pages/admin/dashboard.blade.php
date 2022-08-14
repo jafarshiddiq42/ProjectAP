@@ -1,7 +1,7 @@
 @extends('layouts.adminmaster')
 @section('css')
 <script src="https://kit.fontawesome.com/03296025ab.js" crossorigin="anonymous"></script>
-    
+
 @endsection
 @section('content')
 <main>

@@ -199,6 +199,7 @@
                                     <div class="col col-xs-1">Menetap dengan</div>
                                     <div class="col d-flex col-xs-3" style="">: <div class="" style="white-space: nowrap; overflow: auto;"> {{ $user->siswas->MenetapDengan }}</div></div>
                                 </div>
+                               
                                 <div class="row">
                                     <div class="col col-xs-1">Alamat </div>
                                     <div class="col d-flex  overflow-auto col-xs-3">: <div style="
@@ -223,7 +224,7 @@
 </main>
 @endsection
 @section('Script')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> --}}
 {{-- <script src="{{ asset('sbadmin/js/scripts.js') }}"></script> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>

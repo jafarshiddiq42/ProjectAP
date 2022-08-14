@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dftrulang;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -128,6 +129,112 @@ class UserController extends Controller
     public function daftarulang()
     {
         return view('pages.santri.daftarulang.index');
+
+    }
+    public function daftarulangsubmit(Request $request)
+    {
+        // dd($request->all());
+
+        $berkasuser = Dftrulang::find(Auth::user()->id_berkas);
+        // $berkasuser->buktipembayaran = $request->bukti;
+        // $berkasuser->foto_nisn = $request->nisn;
+        // $berkasuser->ktp_ayah = $request->ktpayah;
+        // $berkasuser->ktp_ibu = $request->ktpibu;
+        // $berkasuser->surat_aktif = $request->ska;
+        // $berkasuser->NPSN = $request->npsn;
+        // $berkasuser->fc_kk = $request->fc_kk;
+        // $berkasuser->fc_akta = $request->fc_akta;
+
+        // bukti
+        if (isset($request->bukti)) {
+            
+            $extbukti=$request->bukti->extension();
+            $namaFile= 'bukti.'.$extbukti;
+            $simpan = $request->bukti->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->buktipembayaran ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+        // nisn
+        if (isset($request->nisn)) {
+            
+            $extnisn=$request->nisn->extension();
+            $namaFile= 'nisn.'.$extnisn;
+            $simpan = $request->nisn->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->foto_nisn ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+        // ktpayah
+        if (isset($request->ktpayah)) {
+            
+            $extktpayah=$request->ktpayah->extension();
+            $namaFile= 'ktpayah.'.$extktpayah;
+            $simpan = $request->ktpayah->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->ktp_ayah ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+        // ktpibu
+        if (isset($request->ktpibu)) {
+            
+            $extktpibu=$request->ktpibu->extension();
+            $namaFile= 'ktpibu.'.$extktpibu;
+            $simpan = $request->ktpibu->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->ktp_ibu ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+        // ska
+        if (isset($request->ska)) {
+            
+            $extska=$request->ska->extension();
+            $namaFile= 'ska.'.$extska;
+            $simpan = $request->ska->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->surat_aktif ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+        // npsn
+        if (isset($request->npsn)) {
+            
+            $extnpsn=$request->npsn->extension();
+            $namaFile= 'npsn.'.$extnpsn;
+            $simpan = $request->npsn->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->NPSN ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+        // fc_kk
+        if (isset($request->fc_kk)) {
+            
+            $extfc_kk=$request->fc_kk->extension();
+            $namaFile= 'fc_kk.'.$extfc_kk;
+            $simpan = $request->fc_kk->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->fc_kk ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+        // fc_kk
+        if (isset($request->fc_akta)) {
+            
+            $extfc_akta=$request->fc_akta->extension();
+            $namaFile= 'fc_akta.'.$extfc_akta;
+            $simpan = $request->fc_akta->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+    
+            $berkasuser->fc_akta ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+            
+            }
+
+        $berkasuser->save();
+
+
+
+        echo($berkasuser);
+        return redirect('/dashboard');
+
+
+        // return view('pages.santri.daftarulang.index');
 
     }
 }

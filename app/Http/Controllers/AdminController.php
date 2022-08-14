@@ -83,7 +83,7 @@ class AdminController extends Controller
             ->where('users.is_admin','!=',1)
             ->where('siswas.confirmed','=',1)
             ->count();
-        $users = User::all()->where('is_admin','!=',1); 
+        $users = User::all()->where('is_admin','!=',1)->sortByDesc('id'); 
         // dd($hitungtaktentu);
         return view('pages.admin.kelulusansantri.index' ,compact('users','hitungtaktentu'));
     }
