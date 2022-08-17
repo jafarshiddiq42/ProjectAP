@@ -5,6 +5,8 @@
 <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/03296025ab.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{{ asset('datatable/datatable.css') }}">
+
 
 @endsection
 @section('content')
@@ -31,7 +33,7 @@
         <div class="card">
           
             <div class="card-body">
-                <table id="datatablesSimple" class="">
+                <table id="" class="display table">
                     <thead>
                         <tr>
                         
@@ -53,7 +55,7 @@
                                   {{$user->siswas->NamaLengkap}}
                                 </div>
                             </td>
-                            <td>{{ 'SB-'.str_pad($user->id,3,0,STR_PAD_LEFT) }}</td>
+                            <td>{{ 'SB-'.str_pad($user->siswas->id,3,0,STR_PAD_LEFT) }}</td>
                             <td>{{ $user->siswas->NISN }}</td>
                             <td>
                                 @if ($user->siswas->Instansi == 'SMK')
@@ -100,6 +102,33 @@
 @section('Script')
 <script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('table.display').DataTable({
+            "language": {
+                "lengthMenu": "Menampilkan _MENU_ data perhalaman",
+                "zeroRecords": "Data tidak ditemukan",
+                "info": "Halaman _PAGE_ dari _PAGES_",
+                "infoEmpty": "Data tidak ditemukan",
+                "search":         "",
+                "infoFiltered": "(dari _MAX_ data)",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Berikutnya",
+                    "previous": "Sebelumnya"
+                }
+
+            },
+            "stripeClasses": []
+        });
+     $('div.dataTables_filter input').attr("placeholder", "Cari...");
+        
+    });
+
+</script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script> --}}
 @endsection

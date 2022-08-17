@@ -77,6 +77,7 @@
                             <div class="card-footer"><div class="small text-muted">Upload Berkas Pendaftaran</div></div>
                         </a>
                     </div>
+                   
                 </div>
             </div>
         </div>

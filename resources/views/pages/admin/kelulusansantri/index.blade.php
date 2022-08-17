@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{ asset('datatable/datatable.css') }}">
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}
     <script src="https://kit.fontawesome.com/03296025ab.js" crossorigin="anonymous"></script>
-@endsection
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+    @endsection
 @section('content')
     <main>
         <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
@@ -283,6 +284,24 @@
                     </div>
                 </div>
             </div>
+          {{--  --}}
+     
+          <button class="btn btn-primary mb-3" id="toastBasicTrigger">Toast Demo</button>
+          
+          <!-- Toast container -->
+          <div style="position: absolute; bottom: 1rem; right: 1rem;">
+              <!-- Toast -->
+              <div class="toast" id="toastBasic" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                  <div class="toast-header">
+                      <i data-feather="bell"></i>
+                      <strong class="mr-auto">Toast with Autohide</strong>
+                      <small class="text-muted ml-2">just now</small>
+                      <button class="ml-2 mb-1 btn-close" type="button" data-bs-dismiss="toast" aria-label="Close">                                                                </button>
+                  </div>
+                  <div class="toast-body">This is an example toast alert, it will dismiss automatically, or you can dismiss it manually.</div>
+              </div>
+          </div>
+{{--  --}}
         </div>
     </main>
 @endsection
@@ -300,7 +319,7 @@
                     "zeroRecords": "Data tidak ditemukan",
                     "info": "Halaman _PAGE_ dari _PAGES_",
                     "infoEmpty": "Data tidak ditemukan",
-                    "search":         "Cari :",
+                    "search":         "",
                     "infoFiltered": "(dari _MAX_ data)",
                     "paginate": {
                         "first": "Pertama",
@@ -312,9 +331,16 @@
                 },
                 "stripeClasses": []
             });
-            
+         $('div.dataTables_filter input').attr("placeholder", "Cari...");
+        
         });
+
     </script>
+    @if (Session::has('status'))
+        <script>
+            toastr.danger("{!! Session::get('status') !!}");
+        </script>
+    @endif
     {{-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> --}}
-    <script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script>
-@endsection
+    {{-- <script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script> --}}
+   @endsection

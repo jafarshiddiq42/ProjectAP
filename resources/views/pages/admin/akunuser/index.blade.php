@@ -1,7 +1,9 @@
 @extends('layouts.adminmaster')
 @section('css')
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link href="{{ asset('sbadmin/css/styles.css') }}" rel="stylesheet" />
+<link rel="stylesheet" href="{{ asset('datatable/datatable.css') }}">
+
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous">
@@ -39,7 +41,7 @@
             <div class="card">
 
                 <div class="card-body">
-                    <table id="datatablesSimple" class="">
+                    <table id="" class="display table">
                         <thead>
                             <tr>
                                 <th>no.</th>
@@ -92,6 +94,34 @@
     </script> --}}
     <script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script>
+    <script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('table.display').DataTable({
+                "language": {
+                    "lengthMenu": "Menampilkan _MENU_ data perhalaman",
+                    "zeroRecords": "Data tidak ditemukan",
+                    "info": "Halaman _PAGE_ dari _PAGES_",
+                    "infoEmpty": "Data tidak ditemukan",
+                    "search":         "",
+                    "infoFiltered": "(dari _MAX_ data)",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Berikutnya",
+                        "previous": "Sebelumnya"
+                    }
+
+                },
+                "stripeClasses": []
+            });
+         $('div.dataTables_filter input').attr("placeholder", "Cari...");
+            
+        });
+
+    </script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script> --}}
 @endsection

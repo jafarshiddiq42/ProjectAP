@@ -111,7 +111,7 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->id_lewat = 1;
         $user->save();
-        return redirect()->back();
+        return redirect('admin/status')->with('status', 'status '.$user->siswas->NamaLengkap.' diubah ke belum ditentukan');
     }
 
 
