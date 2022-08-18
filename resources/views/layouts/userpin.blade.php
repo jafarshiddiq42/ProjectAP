@@ -26,7 +26,7 @@
             <!-- * * Tip * * You can use text or an image for your navbar brand.-->
             <!-- * * * * * * When using an image, we recommend the SVG format.-->
             <!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-         <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">SB Admin Pro</a>
+         <a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">Dayah Darul Ihsan</a>
             <!-- Navbar Search Input-->
             <!-- * * Note: * * Visible only on and above the lg breakpoint-->
             {{-- <form class="form-inline me-auto d-none d-lg-block me-3">
@@ -53,8 +53,8 @@
                         <h6 class="dropdown-header d-flex align-items-center">
                             <img class="dropdown-user-img" src="{{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }}" />
                             <div class="dropdown-user-details">
-                                <div class="dropdown-user-details-name">Valerie Luna</div>
-                                <div class="dropdown-user-details-email">vluna@aol.com</div>
+                                <div class="dropdown-user-details-name">{{ Auth::user()->name }}</div>
+                                <div class="dropdown-user-details-email">{{ Auth::user()->phone }}</div>
                             </div>
                         </h6>
                         <div class="dropdown-divider"></div>

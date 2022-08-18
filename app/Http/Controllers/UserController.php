@@ -99,8 +99,14 @@ class UserController extends Controller
     // 2.kartupendaftaran
     public function viewkartu()
     {   
-        $user = Siswa::find(Auth::user()->id_santri);
-        return view('pages.santri.kartupendaftaran.index',compact('user'));
+        if (Auth::user()->siswas->confirmed == 1) {
+            # code...
+            $user = Siswa::find(Auth::user()->id_santri);
+            return view('pages.santri.kartupendaftaran.index',compact('user'));
+        }
+
+        return redirect('/dashboard');
+        
     }
     public function kartuprint()
     {
@@ -113,7 +119,11 @@ class UserController extends Controller
     // 3.pengumuman
     public function pengumuman()
     {
+        if (Auth::user()->id_lewat != 1) {
+            # code...
         return view('pages.santri.pengumuman.index');
+        }
+        return redirect('/dashboard');
 
     }
     public function pengumumansemua()
@@ -128,7 +138,13 @@ class UserController extends Controller
     // 4.daftarulang
     public function daftarulang()
     {
+        if (Auth::user()->id_lewat != 2) {
+            # code...
+            return redirect('/dashboard');
+
+        }
         return view('pages.santri.daftarulang.index');
+        
 
     }
     public function daftarulangsubmit(Request $request)
@@ -231,6 +247,7 @@ class UserController extends Controller
 
 
         echo($berkasuser);
+
         return redirect('/dashboard');
 
 

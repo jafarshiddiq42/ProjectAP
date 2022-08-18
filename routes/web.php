@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PinController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +48,7 @@ Route::group(['middleware' => 'isAdmin'], function () {
 
 
 // pendaftar
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth','checkpin']], function () {
 
     Route::get('/dashboard', [UserController::class, 'dashboard']);
 // formulir
@@ -64,9 +65,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/daftarulang',[UserController::class,'daftarulang']);
     Route::post('/daftarulang',[UserController::class,'daftarulangsubmit']);
 // pin
-    Route::get('/pin', function () {
-    });
 });
+
+Route::get('/pin',[PinController::class,'index'])->middleware('auth');
+Route::post('/pinsubmit',[PinController::class,'submit'])->middleware('auth');
+
 
 
 
