@@ -57,9 +57,9 @@ class UserController extends Controller
             
         $extfoto=$request->pasfoto->extension();
         $namaFile= 'pasfoto.'.$extfoto;
-        $simpan = $request->pasfoto->move('image/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
+        $simpan = $request->pasfoto->move('berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT),$namaFile);
 
-        $datasiswa->PasFoto ='image/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
+        $datasiswa->PasFoto ='berkasdaftarulang/'.str_pad(Auth::user()->siswas->id,3,0,STR_PAD_LEFT).'/'.$namaFile    ;
         
 
         }
