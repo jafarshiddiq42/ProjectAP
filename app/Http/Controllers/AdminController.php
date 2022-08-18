@@ -6,6 +6,7 @@ use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Ui\Presets\Vue;
 
 class AdminController extends Controller
@@ -23,6 +24,16 @@ class AdminController extends Controller
         $nomor = 1;
         $users = User::orderBy('id', 'DESC')->get()->except(Auth::id()); 
         return view('pages.admin.akunuser.index',compact('users','nomor'));
+    }
+    public function resetpassuser(Request $request)
+    {
+        // $nomor = 1;
+        // $user = User::where('id','=',$request->idsiswa)->get();
+        $user = User::find($request->idsiswa);
+        $user->password = Hash::make($user->phone);
+        $user->save();
+        // dd($user) ;
+        return redirect()->back()->with('status','password dari '.$user->name.' berhasil di-reset');
     }
 
     // 3.listprofiluser

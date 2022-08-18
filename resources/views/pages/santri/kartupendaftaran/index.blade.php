@@ -62,7 +62,7 @@
                                                             rowspan="5">
                                                             <div class="s">
                                                                 <img style="width: 1.5cm;heigh:2.5cm;"
-                                                                    src="{{ asset('images/001SBPFT.jpg') }}"
+                                                                    src="{{ asset($user->PasFoto) }}"
                                                                     alt="">
                                                             </div>
                                                         </td>

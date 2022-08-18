@@ -19,7 +19,7 @@ class DumpsiswaSeed extends Seeder
     public function run()
     {
         $start = 1;
-        $end = 100;
+        $end = 50;
 
 
 
@@ -36,8 +36,9 @@ class DumpsiswaSeed extends Seeder
             User::create(
                 $dataTesuser = [
                     'name'=>'user-'.strval($start),
-                    'phone'=>rand(1000,9999),
+                    'phone'=>rand(10000,99999),
                     'checkpin'=>false,
+                    'pin'=>rand(10000,99999),
                     'is_admin'=>'0',
                     'id_santri'=>$start,
                     'id_berkas'=>$start,

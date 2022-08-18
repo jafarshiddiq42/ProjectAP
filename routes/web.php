@@ -29,6 +29,7 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('/admin', [AdminController::class, 'dashboard']);
     // akun pendaftar
     Route::get('/admin/users', [AdminController::class, 'listuser']);
+    Route::post('/admin/users/reset', [AdminController::class, 'resetpassuser']);
     // profil pendaftar
     Route::get('/admin/santri', [AdminController::class, 'listprofil']);
     Route::get('/admin/santri/profil/{id}', [AdminController::class, 'profil']);

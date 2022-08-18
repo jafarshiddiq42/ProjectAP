@@ -2,10 +2,11 @@
 @section('css')
     {{-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link href="{{ asset('sbadmin/css/styles.css') }}" rel="stylesheet" />
-<link rel="stylesheet" href="{{ asset('datatable/datatable.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('datatable/datatable.css') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css  ">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/03296025ab.js" crossorigin="anonymous"></script>
@@ -37,10 +38,44 @@
             </div>
         </header>
         <!-- Main page content-->
+
+        <div style="position: fixed; top:58px ; right: 0px; z-index:2000">
+            <!-- Toast -->
+            <div class="toast bg-success" id="toastBasic" role="alert" aria-live="assertive" aria-atomic="true"
+                data-bs-delay="3000">
+                <div class="toast-header text-success d-flex justify-content-between ">
+                    <div class="">
+                        <i data-feather="check"></i>
+                        <strong class="mr-auto"> Info</strong>
+                    </div>
+                    {{-- <small class="text-muted ml-2">just now</small> --}}
+                    <span style=""><button class="ml-4 mb-1 btn-close" style="" type="button"
+                            data-bs-dismiss="toast" aria-label="Close"></button></span>
+                </div>
+                <div class="toast-body text-white">{{ Session::get('status') }}</div>
+            </div>
+        </div>
+        @if (Session::has('status'))
+            <script>
+                $(document).ready(function() {
+                    $("#toastBasic").toast("show");
+                    console.log('halo');
+                })
+            </script>
+        @endif
+
+
         <div class="container-fluid px-4">
+
+
+            <!-- Toast container -->
+
+
             <div class="card">
 
+
                 <div class="card-body">
+
                     <table id="" class="display table">
                         <thead>
                             <tr>
@@ -61,21 +96,25 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
                                     <td>{{ $user->pin }}</td>
-                                    <td class="text-center">
-                                        <a href="" class="btn btn-datatable px-4  btn-icon btn-warning"><i
-                                                class="fa-solid fa-arrow-rotate-left"></i></a>
-                                        <a 
-                                        target="_blank"
-                                        href="
+                                    <td class="text-center" style="width: 20%">
+                                        <form action="/admin/users/reset" method="post" id="formreset-{{ $user->id }}">
+                                            @csrf
+                                            <input type="text" name="idsiswa" value="{{ $user->id }}" hidden>
+                                            <button class="btn btn-datatable btn-icon px-4 btn-warning" type="submit">
+                                                <i class="fa-solid fa-key"></i>
+                                            </button>
+
+                                            <a target="_blank"
+                                                href="
                                             https://api.whatsapp.com/send?phone=@if (substr($user->phone, 0, 1) == 0) {{ $user->phone = '+62' . substr(trim($user->phone), 1) }} 
                                             @else
-                                             {{ $user->phone }} 
-                                            @endif
+                                             {{ $user->phone }} @endif
                                             &text=PIN Akun Pendaftaran Santri Baru Anda adalah {{ $user->pin }}
                                             
                                             "
-                                            class="btn btn-datatable px-4  btn-icon btn-success"><i
-                                                class="fa-brands fa-whatsapp"></i></a>
+                                                class="btn btn-datatable px-4  btn-icon btn-success"><i
+                                                    class="fa-brands fa-whatsapp"></i></a>
+                                        </form>
                                     </td>
                                 </tr>
                             @empty
@@ -93,19 +132,26 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script> --}}
     <script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
+    <script src="{{ asset('sbadmin/js/toasts.js') }}"></script>
 
     <script src="{{ asset('sbadmin/js/scripts.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
     <script>
         $(document).ready(function() {
             $('table.display').DataTable({
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+                responsive: true,
                 "language": {
                     "lengthMenu": "Menampilkan _MENU_ data perhalaman",
                     "zeroRecords": "Data tidak ditemukan",
                     "info": "Halaman _PAGE_ dari _PAGES_",
                     "infoEmpty": "Data tidak ditemukan",
-                    "search":         "",
+                    "search": "",
                     "infoFiltered": "(dari _MAX_ data)",
                     "paginate": {
                         "first": "Pertama",
@@ -117,10 +163,9 @@
                 },
                 "stripeClasses": []
             });
-         $('div.dataTables_filter input').attr("placeholder", "Cari...");
-            
-        });
+            $('div.dataTables_filter input').attr("placeholder", "Cari...");
 
+        });
     </script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script> --}}

@@ -479,7 +479,7 @@
                                                                     <input class="form-control" name="pekerjaanwali"
                                                                         value="{{ Auth::user()->siswas->PekerjaanWali }}"
                                                                         id="inputFirstName" type="text"
-                                                                        placeholder="Pekerjaan Ayah" />
+                                                                        placeholder="Pekerjaan Wali" />
                                                                 </div>
 
                                                             </div>
@@ -612,12 +612,10 @@
                                                                 <div class="col d-flex justify-content-end">
                                                                     <button type="button"
                                                                     class="btn btn-default mx-2 btn-warning prev-step">Sebelumnya</button>
-                                                                    <button type="submit"
-                                                                        class="btn btn-success next-step">
-                                                                        Simpan</button>
+                                                               
                                                                     <a href="#" class="mx-2 btn btn-primary"
                                                                         data-bs-toggle="modal"
-                                                                        data-bs-target="#k">Verivikasi</a>
+                                                                        data-bs-target="#k">Konfirmasi</a>
                                                                     <div class="modal fade" id="k" tabindex="-1"
                                                                         role="dialog" aria-labelledby="exampleModalLabel"
                                                                         aria-hidden="true">
@@ -654,10 +652,14 @@
                                                                                         </div>
                                                                                     </small>
                                                                                 </div>
-                                                                                <div class="modal-footer"><button
+                                                                                <div class="modal-footer">
+                                                                                    {{-- <button
                                                                                         class="btn btn-secondary"
                                                                                         type="button"
-                                                                                        data-bs-dismiss="modal">Close</button>
+                                                                                        data-bs-dismiss="modal">Close</button> --}}
+                                                                                        <button type="submit"
+                                                                                        class="btn btn-success next-step">
+                                                                                        Simpan</button>
                                                                                     <button class="btn btn-primary"
                                                                                         type="submit" disabled
                                                                                         id="konfirmasi">Konfirmasi
