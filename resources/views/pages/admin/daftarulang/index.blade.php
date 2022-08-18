@@ -91,7 +91,7 @@
                               @if ($user->dftrulangs->confirmed == 0)
                                   <a href="#" class="btn btn-sm btn-primary">Konfirmasi</a>
                                 @else
-                                <span class="text-green">Dikonfirmasi</span>
+                                <a href="/zip/{{ $user->siswas->id }}" class="btn btn-sm btn-primary">Download Berkas</a>
                               @endif
                             </td>
                         </tr>

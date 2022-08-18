@@ -143,6 +143,11 @@ class UserController extends Controller
             return redirect('/dashboard');
 
         }
+        elseif (Auth::user()->id_lewat == 2 and Auth::user()->dftrulangs->confirmed ==1) {
+            $user = Siswa::find(Auth::user()->id_santri);
+        return view('pages.santri.daftarulang.buktidaftarulang',compact('user'));
+            
+        }
         return view('pages.santri.daftarulang.index');
         
 
@@ -253,5 +258,19 @@ class UserController extends Controller
 
         // return view('pages.santri.daftarulang.index');
 
+    }
+
+
+    public function downloadbukti()
+    {
+
+
+        if (Auth::user()->id_lewat != 2) {
+            # code...
+            return redirect('/dashboard');
+
+        }
+        $siswa = Siswa::find(Auth::user()->siswas->id);
+        return view('pages.santri.daftarulang.print',compact('siswa'));
     }
 }

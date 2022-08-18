@@ -132,4 +132,9 @@ class AdminController extends Controller
         $users = User::all()->except(Auth::id()); 
         return view('pages.admin.daftarulang.index',compact('users'));
     }
+    public function listberkaskonfirmasi()
+    {
+        $users = User::all()->except(Auth::id()); 
+        return view('pages.admin.daftarulang.index',compact('users'));
+    }
 }

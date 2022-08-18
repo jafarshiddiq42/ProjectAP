@@ -60,10 +60,7 @@
                             </div>
                         </h6>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#!">
-                            <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                            Account
-                        </a>
+                     
                         <a class="dropdown-item" href="#!" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                             <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                             Logout
@@ -119,7 +116,7 @@
                     <!-- Sidenav Footer-->
                     <div class="sidenav-footer">
                         <div class="sidenav-footer-content">
-                            <div class="sidenav-footer-subtitle">Logged in as:</div>
+                            <div class="sidenav-footer-subtitle">Login Sebagai:</div>
                             <div class="sidenav-footer-title">{{ Auth::user()->name }}</div>
                         </div>
                     </div>
@@ -130,7 +127,7 @@
                 <footer class="footer-admin mt-auto footer-light">
                     <div class="container-xl px-4">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                            <div class="col-md-6 small">Copyright &copy; 2022 Muhammad Ja'far Shiddiq </div>
                             <div class="col-md-6 text-md-end small">
                                 <a href="#!">Privacy Policy</a>
                                 &middot;

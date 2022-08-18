@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth','checkpin']], function () {
 // daftarulang
     Route::get('/daftarulang',[UserController::class,'daftarulang']);
     Route::post('/daftarulang',[UserController::class,'daftarulangsubmit']);
+    Route::get('/downloadbukti',[UserController::class,'downloadbukti']);
 // pin
 });
 
@@ -75,6 +76,7 @@ Route::post('/pinsubmit',[PinController::class,'submit'])->middleware('auth');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/zip/{id}', [App\Http\Controllers\ZipController::class, 'zipberkas']);
 
 
 // belum dibuat middleware

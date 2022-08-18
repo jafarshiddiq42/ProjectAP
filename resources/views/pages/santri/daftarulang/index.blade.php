@@ -43,7 +43,7 @@
                                     <div class="col col-xs-9 col-sm-9  col-lg-9">
                                         <div id="divbukti" class="overflow-hidden" style="height:100px; "
                                             onclick="$('#buktifile').click()">
-                                            <img src="" id="bukti" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->buktipembayaran) }}" id="bukti" alt=""
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="bukti" id="buktifile" class="form-control">
@@ -72,7 +72,7 @@
                                     <div class="col col-xs-9 col-sm-9  col-lg-9">
                                         <div id="divnisn" class="overflow-hidden" style="height:100px; "
                                             onclick="$('#nisnfile').click()">
-                                            <img src="" id="nisn" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->foto_nisn) }}" id="nisn" alt=""
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="nisn" id="nisnfile" class="form-control    ">
@@ -93,7 +93,7 @@
                                     <div class="col col-lg-9">
                                         <div id="divayah" class="overflow-hidden" style="height:100px;"
                                             onclick="$('#ktpfileayah').click()">
-                                            <img src="" id="ktpayah" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->ktp_ayah) }}" id="ktpayah" alt=""
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="ktpayah" id="ktpfileayah" class="form-control    ">
@@ -112,7 +112,7 @@
                                     <div class="col col-lg-9">
                                         <div id="divibu" class="overflow-hidden" style="height:100px;"
                                             onclick="$('#ktpfileibu').click()">
-                                            <img src="" id="ktpibu" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->ktp_ibu) }}" id="ktpibu" alt=""
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="ktpibu" id="ktpfileibu" class="form-control    ">
@@ -131,7 +131,7 @@
                                     <div class="col col-lg-9">
                                         <div id="divskas" class="overflow-hidden" style="height:100px;"
                                             onclick="$('#skasafile').click()">
-                                            <img src="" id="skasa" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->surat_aktif) }}" id="skasa" alt=""
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="ska" id="skasafile" class="form-control    ">
@@ -156,7 +156,7 @@
                                     <div class="col col-lg-9">
                                         <div id="divnpsn" class="overflow-hidden" style="height:100px;"
                                             onclick="$('#npsnfile').click()">
-                                            <img src="" id="npsn" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->NPSN) }}" id="npsn" alt=""
                                                 style="width: -webkit-fill-available;">
 
                                         </div>
@@ -176,7 +176,7 @@
                                     <div class="col col-lg-9">
                                         <div id="divkk" class="overflow-hidden" style="height:100px;"
                                             onclick="$('#kkfile').click()">
-                                            <img src="" id="kk" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->fc_kk) }}" id="kk" alt=""
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="fc_kk" id="kkfile" class="form-control    ">
@@ -195,8 +195,9 @@
                                     <div class="col col-lg-9">
                                         <div id="divak" class="overflow-hidden" style="height:100px;"
                                             onclick="$('#aktafile').click()">
-                                            <img src="" id="akta" alt=""
+                                            <img src="{{ asset(Auth::user()->dftrulangs->fc_akta) }}" id="akta" alt=""
                                                 style="width: -webkit-fill-available;">
+                                                
                                         </div>
                                         <input type="file" name="fc_akta" id="aktafile" class="form-control    ">
 
