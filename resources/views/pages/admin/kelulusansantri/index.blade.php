@@ -358,7 +358,7 @@
             </div>
           {{--  --}}
      
-          <button class="btn btn-primary mb-3" id="toastBasicTrigger">Toast Demo</button>
+        
           
           <!-- Toast container -->
           <div style="position: absolute; bottom: 1rem; right: 1rem;">
