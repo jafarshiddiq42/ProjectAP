@@ -192,7 +192,7 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="/admin/batal/{{ $user->id }}" 
+                                                                <a href="/admin/batal/{{ $user->id }}"   data-bs-toggle="tooltip" data-bs-placement="top" title="Batalkan Status"
                                                                     class="btn btn-datatable px-4  btn-icon btn-danger"><i
                                                                         class="fa-solid fa-eject"></i></a>
 
@@ -264,7 +264,79 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="/admin/batal/{{ $user->id }}" 
+                                                                <a href="/admin/batal/{{ $user->id }}"   data-bs-toggle="tooltip" data-bs-placement="top" title="Batalkan Status"
+                                                                    class="btn btn-datatable px-4  btn-icon btn-danger"><i
+                                                                        class="fa-solid fa-eject"></i></a>
+
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @empty
+                                                @endforelse
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-collapsable">
+                                <a class="card-header text-dark" href="#cadangan" data-bs-toggle="collapse" role="button"
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri Lulus Cadangan
+                                    <div class="card-collapsable-arrow">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse  p-3" style="font-size: small" id="cadangan">
+                                    <div class="card-body overflow-auto ">
+                                        <table class="display  table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama Santri</th>
+                                                    <th>No Pendaftaran</th>
+                                                    {{-- <th>NISN</th> --}}
+                                                    <th>Instansi Pilihan</th>
+                                                    {{-- <th class="text-center">Aksi</th> --}}
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse ($users as $user)
+                                                    @if ($user->siswas->confirmed == 1 and $user->id_lewat == 4)
+                                                        <tr>
+
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+                                                                    {{-- <div class="avatar me-2"><img
+                                                                            class="avatar-img img-fluid"
+                                                                            src="@if ($user->siswas->JKelamin == 'L') {{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }} @else {{ asset('sbadmin/assets/img/illustrations/profiles/profile-1.png') }} @endif" />
+                                                                    </div> --}}
+                                                                    {{ $user->siswas->NamaLengkap }}
+                                                                </div>
+                                                            </td>
+                                                            <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}
+                                                            </td>
+                                                            {{-- <td>{{ $user->siswas->NISN }}</td> --}}
+                                                            <td>
+                                                                @if ($user->siswas->Instansi == 'SMK')
+                                                                    <div class="badge bg-blue-soft text-blue"> Sekolah
+                                                                        Menengah Kejuruan
+                                                                    </div>
+                                                                @elseif($user->siswas->Instansi == 'MAN')
+                                                                    <div class="badge bg-green-soft text-green"> Madrasah
+                                                                        Aliyah</div>
+                                                                @else
+                                                                    <div class="badge bg-warning-soft text-warning">
+                                                                        Madrasah Tsanawiyah
+                                                                    </div>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <a href="/admin/batal/{{ $user->id }}"   data-bs-toggle="tooltip" data-bs-placement="top" title="Batalkan Status"
                                                                     class="btn btn-datatable px-4  btn-icon btn-danger"><i
                                                                         class="fa-solid fa-eject"></i></a>
 

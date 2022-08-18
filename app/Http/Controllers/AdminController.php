@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dftrulang;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -132,9 +133,11 @@ class AdminController extends Controller
         $users = User::all()->except(Auth::id()); 
         return view('pages.admin.daftarulang.index',compact('users'));
     }
-    public function listberkaskonfirmasi()
+    public function listberkaskonfirmasi($id)
     {
-        $users = User::all()->except(Auth::id()); 
-        return view('pages.admin.daftarulang.index',compact('users'));
+        $users = Dftrulang::find($id); 
+        $users->confirmed=1;
+        $users->save();
+        return redirect()->back();
     }
 }

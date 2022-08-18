@@ -44,6 +44,7 @@ Route::group(['middleware' => 'isAdmin'], function () {
 
     //berkas daftar ulang
     Route::get('/admin/daftarulang', [AdminController::class, 'listberkas']);
+    Route::get('/admin/daftarulang/{id}/konfirmasi', [AdminController::class, 'listberkaskonfirmasi']);
 });
 
 

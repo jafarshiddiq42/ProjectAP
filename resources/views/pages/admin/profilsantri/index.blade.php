@@ -80,9 +80,9 @@
                                         @csrf
                                 <input type="text" name="idsiswa" class="d-none" value="{{ $user->siswas->id }}"  id="">
                                 </form>
-                                <a href="" onclick="event.preventDefault();$('#batalkonfirm{{ $user->siswas->id }}').submit()" class="btn btn-datatable px-4  btn-icon btn-danger"><i class="fa-solid fa-eject"></i></a>
-                                <a href="/admin/santri/profil/{{ $user->id }}" class="btn btn-datatable px-4  btn-icon btn-primary"><i class="fa-solid fa-eye"></i></a>
-                                <a href="/admin/santri/print/{{ $user->siswas->id }}" target="_blank" class="btn btn-datatable px-4  btn-icon btn-warning"><i class="fa-solid fa-print"></i></a>
+                                <a href="" onclick="event.preventDefault();$('#batalkonfirm{{ $user->siswas->id }}').submit()" class="btn btn-datatable px-4  btn-icon btn-danger"  data-bs-toggle="tooltip" data-bs-placement="top" title="Batalkan Konfirmasi Data"><i class="fa-solid fa-eject"></i></a>
+                                <a href="/admin/santri/profil/{{ $user->id }}" class="btn btn-datatable px-4  btn-icon btn-primary"  data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Profil"><i class="fa-solid fa-eye"></i></a>
+                                <a href="/admin/santri/print/{{ $user->siswas->id }}" target="_blank" class="btn btn-datatable px-4  btn-icon btn-warning"  data-bs-toggle="tooltip" data-bs-placement="top" title="Print Formulir"><i class="fa-solid fa-print"></i></a>
                                 {{-- <a href="" class="btn btn-datatable px-4  btn-icon btn-success"><i class="fa-brands fa-whatsapp"></i></a> --}}
                             </td>
                         </tr>

@@ -100,11 +100,11 @@
                                         <form action="/admin/users/reset" method="post" id="formreset-{{ $user->id }}">
                                             @csrf
                                             <input type="text" name="idsiswa" value="{{ $user->id }}" hidden>
-                                            <button class="btn btn-datatable btn-icon px-4 btn-warning" type="submit">
+                                            <button class="btn btn-datatable btn-icon px-4 btn-warning" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Reset Password">
                                                 <i class="fa-solid fa-key"></i>
                                             </button>
 
-                                            <a target="_blank"
+                                            <a target="_blank"  data-bs-toggle="tooltip" data-bs-placement="top" title="Kirim Pin Melalui WhatsApp"
                                                 href="
                                             https://api.whatsapp.com/send?phone=@if (substr($user->phone, 0, 1) == 0) {{ $user->phone = '+62' . substr(trim($user->phone), 1) }} 
                                             @else

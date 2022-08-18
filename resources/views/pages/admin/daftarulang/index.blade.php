@@ -30,79 +30,172 @@
     </header>
     <!-- Main page content-->
     <div class="container-fluid px-4">
+        
         <div class="card">
-          
+            <div class="card-header border-bottom">
+                <ul class="nav nav-tabs card-header-tabs" id="cardTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="overview-tab" href="#overview" data-bs-toggle="tab" role="tab" aria-controls="overview" aria-selected="true">Belum Dikonfirmasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="example-tab" href="#example" data-bs-toggle="tab" role="tab" aria-controls="example" aria-selected="false">Sudah Dikonfirmasi</a>
+                    </li>
+                   
+                </ul>
+            </div>
             <div class="card-body">
-                <table  class="display table ">
-                    <thead>
-                        <tr>
-                        
-                            <th>Nama Santri</th>
-                            <th>No Pendaftaran</th>
-                            <th>NISN</th>
-                            <th>Instansi Pilihan</th>
-                            <th>Berkas</th>
-                            <th>Pembayaran</th>
-                            <th class="text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($users as $user)
-                        @if ($user->id_lewat == 2 and $user->siswas->confirmed == 1)
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="avatar me-2"><img class="avatar-img img-fluid" src="{{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }}" /></div>
-                                   {{ $user->siswas->NamaLengkap }}
-                                </div>
-                            </td>
-                            <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
-                            <td>{{ $user->siswas->NISN }}</td>
-                            <td>
-                                @if ($user->siswas->Instansi == 'SMK')
-                                <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan</div>
-                            @elseif($user->siswas->Instansi == 'MAN')
-                                <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
-                            @else
-                                <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah</div>
-                            @endif
-                            </td>
-                            <td class="text-center" ><a href="/admin/santri/berkas/{{ $user->id }}" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i></a></td>
-                            <td class="text-center" > <a href="#" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#i{{ $user->id }}"><i class="fa-solid fa-money-check"></i></a>
-                                <div class="modal fade" id="i{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran Pendaftaran Ulang</h5>
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body d-flex justify-content-center">
-                                                <div style="width: 8cm">
-                                                    {{-- {{ $user->dftrulangs->id }} --}}
-                                                <img src="{{ asset($user->dftrulangs->buktipembayaran) }}" style="width:-webkit-fill-available" alt="">
-                                                 </div>
-                                            </div>
-                                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button></div>
+                <div class="tab-content" id="cardTabContent">
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                        <h5 class="card-title">Belum Dikonfirmasi</h5>
+                       <div class="m-3">
+                        <table  class="display table ">
+                            <thead>
+                                <tr>
+                                
+                                    <th>Nama Santri</th>
+                                    <th>No Pendaftaran</th>
+                                    <th>NISN</th>
+                                    <th>Instansi Pilihan</th>
+                                    <th>Berkas</th>
+                                    <th>Pembayaran</th>
+                                    <th class="text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($users as $user)
+                                @if ($user->id_lewat == 2 and $user->siswas->confirmed == 1 and $user->dftrulangs->confirmed==0)
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar me-2"><img class="avatar-img img-fluid" src="{{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }}" /></div>
+                                           {{ $user->siswas->NamaLengkap }}
                                         </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                              @if ($user->dftrulangs->confirmed == 0)
-                                  <a href="#" class="btn btn-sm btn-primary">Konfirmasi</a>
-                                @else
-                                <a href="/zip/{{ $user->siswas->id }}" class="btn btn-sm btn-primary">Download Berkas</a>
-                              @endif
-                            </td>
-                        </tr>
-                        @endif
-                        @empty
-                            
-                        @endforelse
-                        
-                       
-                    </tbody>
-                </table>
+                                    </td>
+                                    <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
+                                    <td>{{ $user->siswas->NISN }}</td>
+                                    <td>
+                                        @if ($user->siswas->Instansi == 'SMK')
+                                        <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan</div>
+                                    @elseif($user->siswas->Instansi == 'MAN')
+                                        <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
+                                    @else
+                                        <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah</div>
+                                    @endif
+                                    </td>
+                                    <td class="text-center" ><a href="/admin/santri/berkas/{{ $user->id }}" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i></a></td>
+                                    <td class="text-center" > <a href="#" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#i{{ $user->id }}"><i class="fa-solid fa-money-check"></i></a>
+                                        <div class="modal fade" id="i{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran Pendaftaran Ulang</h5>
+                                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body d-flex justify-content-center">
+                                                        <div style="width: 8cm">
+                                                            {{-- {{ $user->dftrulangs->id }} --}}
+                                                        <img src="{{ asset($user->dftrulangs->buktipembayaran) }}" style="width:-webkit-fill-available" alt="">
+                                                         </div>
+                                                    </div>
+                                                    <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                      @if ($user->dftrulangs->confirmed == 0)
+                                          <a href="/admin/daftarulang/{{ $user->dftrulangs->id }}/konfirmasi" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Konfirmasi Pembayaran">Konfirmasi</a>
+                                        @else
+                                        <a href="/zip/{{ $user->siswas->id }}" class="btn btn-sm btn-primary">Download Berkas</a>
+                                      @endif
+                                    </td>
+                                </tr>
+                                @endif
+                                @empty
+                                    
+                                @endforelse
+                                
+                               
+                            </tbody>
+                        </table>
+                       </div>
+                    </div>
+                    <div class="tab-pane fade" id="example" role="tabpanel" aria-labelledby="example-tab">
+                        <h5 class="card-title">Dikonfirmasi</h5>
+                        <div class="m-3">
+                            <table  class="display table ">
+                                <thead>
+                                    <tr>
+                                    
+                                        <th>Nama Santri</th>
+                                        <th>No Pendaftaran</th>
+                                        <th>NISN</th>
+                                        <th>Instansi Pilihan</th>
+                                        <th>Berkas</th>
+                                        <th>Pembayaran</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($users as $user)
+                                    @if ($user->id_lewat == 2 and $user->siswas->confirmed == 1 and $user->dftrulangs->confirmed==1)
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar me-2"><img class="avatar-img img-fluid" src="{{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }}" /></div>
+                                               {{ $user->siswas->NamaLengkap }}
+                                            </div>
+                                        </td>
+                                        <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
+                                        <td>{{ $user->siswas->NISN }}</td>
+                                        <td>
+                                            @if ($user->siswas->Instansi == 'SMK')
+                                            <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan</div>
+                                        @elseif($user->siswas->Instansi == 'MAN')
+                                            <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
+                                        @else
+                                            <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah</div>
+                                        @endif
+                                        </td>
+                                        <td class="text-center" ><a href="/admin/santri/berkas/{{ $user->id }}" class="btn btn-xs btn-primary"><i class="fa fa-eye"></i></a></td>
+                                        <td class="text-center" > <a href="#" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#i{{ $user->id }}"><i class="fa-solid fa-money-check"></i></a>
+                                            <div class="modal fade" id="i{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Bukti Pembayaran Pendaftaran Ulang</h5>
+                                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body d-flex justify-content-center">
+                                                            <div style="width: 8cm">
+                                                                {{-- {{ $user->dftrulangs->id }} --}}
+                                                            <img src="{{ asset($user->dftrulangs->buktipembayaran) }}" style="width:-webkit-fill-available" alt="">
+                                                             </div>
+                                                        </div>
+                                                        <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                          @if ($user->dftrulangs->confirmed == 0)
+                                              <a href="/admin/daftarulang/{{ $user->id }}/konfirmasi" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Konfirmasi Pembayaran">Konfirmasi</a>
+                                            @else
+                                            <a href="/zip/{{ $user->siswas->id }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Download Berkas"><i class="fa fa-download"></i></a>
+                                          @endif
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    @empty
+                                        
+                                    @endforelse
+                                    
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
