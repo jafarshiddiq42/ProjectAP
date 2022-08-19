@@ -10,6 +10,8 @@
 
         <meta name="author" content="" />
         <title>Darul Ihsan Boarding</title>
+<script  src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
         <link href="{{ asset('sbadmin/css/customcss.css') }}" rel="stylesheet" />
         <link href="{{ asset('sbadmin/css/styles.css') }}" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/03296025ab.js" crossorigin="anonymous"></script>

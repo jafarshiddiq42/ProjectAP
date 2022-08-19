@@ -136,16 +136,17 @@ class UserController extends Controller
     // 4.daftarulang
     public function daftarulang()
     {
-        if (Auth::user()->id_lewat != 2) {
+        if (Auth::user()->id_lewat != 2 ) {
             # code...
             return redirect('/dashboard');
 
         }
-        elseif (Auth::user()->id_lewat == 2 and Auth::user()->dftrulangs->confirmed ==1) {
+        elseif (Auth::user()->id_lewat == 2 and Auth::user()->dftrulangs->confirmed ==1 ) {
             $user = Siswa::find(Auth::user()->id_santri);
         return view('pages.santri.daftarulang.buktidaftarulang',compact('user'));
             
         }
+        
         return view('pages.santri.daftarulang.index');
         
 
@@ -251,7 +252,7 @@ class UserController extends Controller
 
         echo($berkasuser);
 
-        return redirect('/dashboard');
+        return redirect('/dashboard')->with('status','mohon menunggu berkas anda sedang diverifikasi');
 
 
         // return view('pages.santri.daftarulang.index');
