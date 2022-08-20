@@ -322,7 +322,7 @@
                 <!--login-btn-->
                <div class="" style="display: flex">
                 <a href="{{ route('register') }}" class="main-register" style="border-radius: 5px;">Daftar Sekarang</a>
-                <a href="{{ route('register') }}" class="main-login" style="border-radius: 5px;">login</a></div>
+                <a href="{{ route('login') }}" class="main-login" style="border-radius: 5px;">login</a></div>
             </div>
             <!--img-->
             <div class="home-img">
