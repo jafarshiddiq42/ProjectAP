@@ -19,22 +19,59 @@
 
 <body class="">
     <style>
-        .background {
+       .background {
             position: absolute;
             max-height: 636px;
             overflow: hidden;
             z-index: 0;
         }
-        .boxhias1{
+
+        .boxhias1 {
             position: absolute;
-            min-height: 636px;
+            min-height: 100%;
             background-color: rgba(7, 56, 169, 0.6);
             min-width: 70%;
             margin-left: 30%;
+            
             /* border: 1px solid black; */
             clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
-         
-            
+        }
+
+        @media (max-width: 480px) {
+            .background img{
+                object-fit: cover;
+                /* max-width: 100%; */
+
+            }
+            .background{
+                max-width: 100%;
+                overflow: hidden;
+            }
+          
+        }
+        @media (max-width: 768px) {
+            .background img{
+                object-fit: cover;
+                /* max-width: 100%; */
+
+            }
+            .background{
+                max-width: 100%;
+                overflow: hidden;
+            }
+          
+        }
+        @media (max-width: 1024px) {
+            .background img{
+                object-fit: cover;
+                /* max-width: 100%; */
+
+            }
+            .background{
+                max-width: 100%;
+                overflow: hidden;
+            }
+          
         }
     </style>
     <div class="background" style=""><img
