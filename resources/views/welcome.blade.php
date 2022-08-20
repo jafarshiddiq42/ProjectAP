@@ -137,7 +137,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE-edge">
 <meta name="viewport" content="width=device-width, intial-scale=1.0">
-<title>Jawahar Lal Nehru College Dehri-on-sone</title>
+<title>Pendaftaran Santri Baru Dayah Darul Ihsan</title>
 <link rel="stylesheet" href="{{ ('hometemplate/css/style.css') }}"/>
 <!--fav-icon-->
 <link rel="shortcut icon" href="{{ asset('darulihsan.png') }}"/>
@@ -363,7 +363,7 @@ span.psw {
         <div class="box-container">
             <!--box-1-------->
             <div class="box">
-                <img src="images/icon5.png">
+                {{-- <img src="images/icon5.png"> --}}
                 <font>Madrasah Tsanawiyah</font>
                 <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua</p>
                 <!--btn--------->
@@ -371,7 +371,7 @@ span.psw {
             </div>
             <!--box-2-------->
             <div class="box">
-                <img src="images/icon5.png">
+                {{-- <img src="images/icon5.png"> --}}
                 <font>Madrasah Aliyah</font>
                 <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua.</p>
                 <!--btn--------->
@@ -379,7 +379,7 @@ span.psw {
             </div>
             <!--box-3-------->
             <div class="box">
-                <img src="images/icon5.png">
+                {{-- <img src="images/icon5.png"> --}}
                 <font>Sekolah Menengah Kejuruan</font>
                 <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua</p>
                 <!--btn--------->
