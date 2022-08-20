@@ -24,6 +24,7 @@
             max-height: 636px;
             overflow: hidden;
             z-index: 0;
+            max-height: 100%;
         }
 
         .boxhias1 {
