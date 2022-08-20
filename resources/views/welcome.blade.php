@@ -140,7 +140,7 @@
 <title>Jawahar Lal Nehru College Dehri-on-sone</title>
 <link rel="stylesheet" href="{{ ('hometemplate/css/style.css') }}"/>
 <!--fav-icon-->
-<link rel="shortcut icon" href="{{ asset('hometemplate/images/favicon.png') }}"/>
+<link rel="shortcut icon" href="{{ asset('darulihsan.png') }}"/>
 <style>
     /* Full-width input fields */
 input[type=text], input[type=password] {
