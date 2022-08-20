@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PinController;
 use App\Http\Controllers\UserController;
+use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $jumlahpendaftar = Siswa::all()->count();
+    return view('welcome',compact('jumlahpendaftar'));
 });
 
 Auth::routes();

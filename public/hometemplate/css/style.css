@@ -23,7 +23,7 @@ input{
 .main{
 
     width:100%;
-    height:768px;
+    height: 658px;
     position: relative;
 }
 .logo img{
@@ -77,19 +77,49 @@ nav ul li a:hover{
     align-items: center;
     position: absolute;
     left: 50%;
-    top:40%;
+    top:50%;
     transform: translate(-50%,-50%);
     width:90%;
 
 }
 .home-img{
-    width:500px;
+    width:300px;
     height:400px;
     margin:20px;
 }
+.boxinfopendaftaran{
+    min-width: 90px;
+    min-height: 90px;
+    background-color: white;
+    border-radius: 20px;
+    margin:0 5px 0 5px;
+    border: 3px solid rgba(255, 255, 255, 0.134);
+    
+  
+
+}
+.textkotak{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 40px;
+    font-family: sans-serif;
+    color: white;
+    font-weight: bold;
+    
+}
+.textbantu{ 
+    border-top: 1px solid white;
+    align-self: center;
+    font-size: 16px;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
 .home-img img{
-    width: 100%;
-    height: 100%;
+   width: 50%;
+    height: 50%;
     object-fit: contain;
     object-position: center;
 }
@@ -116,6 +146,24 @@ nav ul li a:hover{
 .main-login{
     width:200px;
     height:40px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #36be00;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+}
+.main-login:hover{
+    background-color: #08f100;
+    transition: all ease 0.3s;
+}
+.main-register{
+    width:200px;
+    margin: 0 10px 0 10px;
+    height:40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,8 +173,8 @@ nav ul li a:hover{
     text-transform: uppercase;
     transition: 0.3s ease-in-out;
 }
-.main-login:hover{
-    background-color: #F14D5D;
+.main-register:hover{
+    background-color: #ff2f44;
     transition: all ease 0.3s;
 }
 .arrow{
@@ -259,8 +307,8 @@ nav ul li a:hover{
 
 .box{
     width:200px;
-    height: 400px;
-    background-color: #ffffff;
+    height: 250px;
+    /* background-color: #ffffff; */
     box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
@@ -470,6 +518,7 @@ nav .menu-btn{
     nav .menu-btn:checked ~ .menu{
         display: block;
     }
+ 
     .home-img{
         display: none;
     }
@@ -541,7 +590,7 @@ nav .menu-btn{
         padding: 75px 0px 0px 0;
         background: url('images/hero-bg.png') no-repeat center center;
         background-size: cover;
-        height: 900px;
+        height: 600px;
    }.arrow{
        left: 2%;
        margin-bottom: 15em;
