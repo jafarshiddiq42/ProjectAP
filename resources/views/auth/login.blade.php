@@ -83,8 +83,8 @@
      <div class="card shadow-lg border-0 rounded-lg mt-5">
         <div class="card-header  justify-content-center">
             <div class="row">
-                <div class="col-2"> <img src="{{ asset('darulihsan.png') }}" class="" height="30px" alt=""> </div>
-                <div class="col-7"> <h3 class="fw-light mt-2  ">Login</h3></div>
+                <div class="col-2"> <img src="{{ asset('darulihsan.png') }}" class="" height="50px" alt=""> </div>
+                <div class="col-7"> <h3 class="fw-light mt-3  "><b>LOGIN</b></h3></div>
             </div>
            </div>
         <div class="card-body">
@@ -93,7 +93,7 @@
                 @csrf
                 <!-- Form Group (email address)-->
                 <div class="mb-3">
-                    <label class="small mb-1" for="inputEmailAddress">Email</label>
+                    <label class="small mb-1" for="inputEmailAddress">Nomor WhatsApp</label>
                     <input id="email" type="text"
                     class="form-control @error('phone') is-invalid @enderror" name="phone"
                     value="{{ old('phone') }}" required autocomplete="email" autofocus>
@@ -122,20 +122,20 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                         {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="rememberPasswordCheck">Remember password</label>
+                        <label class="form-check-label" for="rememberPasswordCheck">Ingat Saya</label>
                     </div>
                 </div>
                 <!-- Form Group (login box)-->
-                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                    <a class="small" href="auth-password-basic.html">Forgot Password?</a>
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Login') }}
+                <div class="d-flex align-items-center justify-content-between mt-4 mb-0"    >
+                    {{-- <a class="small" href="auth-password-basic.html">Forgot Password?</a> --}}
+                    <button type="submit" class="btn btn-primary " >
+                        Masuk
                     </button>
                 </div>
             </form>
         </div>
         <div class="card-footer text-center">
-            <div class="small"><a href="/register">Need an account? Sign up!</a></div>
+            <div class="small"><a href="/register">Belum mempunyai Akun? Daftar Sekarang!</a></div>
         </div>
     </div>
 @endsection

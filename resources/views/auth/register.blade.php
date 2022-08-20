@@ -89,8 +89,8 @@
     <div class="card shadow-lg border-0 rounded-lg mt-5">
         <div class="card-header justify-content-center">
             <div class="row">
-                <div class="col-2"> <img src="{{ asset('darulihsan.png') }}" class="" height="30px" alt=""> </div>
-                <div class="col-7"> <h3 class="fw-light mt-2  ">Pendaftaran Akun</h3></div>
+                <div class="col-2"> <img src="{{ asset('darulihsan.png') }}" class="" height="50px" alt=""> </div>
+                <div class="col-7"> <h3 class="fw-light mt-3  "><b>Register Akun</b></h3></div>
             </div>
         </div>
         <div class="card-body">
@@ -110,7 +110,7 @@
                 </div>
                 <!-- Form Group (email address)            -->
                 <div class="mb-3">
-                    <label class="small mb-1" for="inputEmailAddress">No Hp</label>
+                    <label class="small mb-1" for="inputEmailAddress">Nomor WhatsApp</label>
                     <input class="form-control" name="phone" id="inputEmailAddress" type="text" aria-describedby="emailHelp"
                         placeholder="Nomor WhatsApp" />
                 </div>
@@ -133,11 +133,11 @@
                     </div>
                 </div>
                 <!-- Form Group (create account submit)-->
-                <button type="submit" class="btn btn-primary btn-block" >Create Account</button>
+                <button type="submit" class="btn btn-primary btn-block"  >Daftar</button>
             </form>
         </div>
         <div class="card-footer text-center">
-            <div class="small"><a href="/login">Have an account? Go to login</a></div>
+            <div class="small"><a href="/login">Sudah Punya akun? Login</a></div>
         </div>
     </div>
     </div>

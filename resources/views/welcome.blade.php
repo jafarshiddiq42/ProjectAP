@@ -304,8 +304,7 @@
                 <li><a href="#">Profil / Sejarah</a></li>
                 <li><a href="#">Akademik</a></li>
                 <li><a href="#">Kitab</a></li>
-                <li><a class="active" href="{{ route('login') }}"
-                        style="width:auto; border-radius: 5px; cursor: pointer;">Login</a></li>
+                
             </ul>
         </nav>
 
@@ -369,58 +368,58 @@
     </section>
 
     <!--services----------------------->
-    <section class="services">
+    {{-- <section class="services">
         <!--heading----------->
         <div class="services-heading">
             <h2>4 Instansi Pendidikan</h2>
-            {{-- <p>Lorem ipsum dolor sit amet, consectetur ad asese do eiusmod tempor incididunt utarla oreetdolo magna aliqua</p> --}}
+            
         </div>
         <!--box-container----------------->
         <div class="box-container">
             <!--box-1-------->
             <div class="box" style="border :4px solid #f1d301e8;display:flex;justify-content: center;">
-                {{-- <img src="images/icon5.png"> --}}
+              
                 <div class="">
                     <font>Madrasah Tsanawiyah</font>
                     <p>Pendidikan Setara SMP </p>
                 </div>
                 <!--btn--------->
-                {{-- <a href="#">Daftar Sekarang</a> --}}
+                
             </div>
             <!--box-2-------->
             <div class="box" style="border :4px solid #1be703;display:flex;justify-content: center;">
-                {{-- <img src="images/icon5.png"> --}}
+            
                 <font>Madrasah Aliyah</font>
                 <p>Pendidikan Setara SMA</p>
                 <!--btn--------->
-                {{-- <a href="#">Apply Now</a> --}}
+                
             </div>
             <!--box-3-------->
             <div class="box" style="border: 4px solid #1b1bea;display:flex;justify-content: center;">
-                {{-- <img src="images/icon5.png"> --}}
+              
                 <font>Sekolah Menengah Kejuruan</font>
                 <p>Kejuruan Komputer dan Jaringan</p>
                 <!--btn--------->
-                {{-- <a href="#">Apply Now</a> --}}
+               
             </div>
             <div class="box" style="border: 4px solid #ffa500;display:flex;justify-content: center;">
-                {{-- <img src="images/icon5.png"> --}}
+             
                 <font>Ma'had Ali</font>
                 <p>Pendidikan Setara Universitas dan Institut Perguruan Tinggi</p>
                 <!--btn--------->
-                {{-- <a href="#">Apply Now</a> --}}
+               
             </div>
             <!--box-4-------->
 
             <!--box-1-------->
 
         </div>
-    </section>
+    </section> --}}
 
     <!--footer------------->
-    <footer>
+    {{-- <footer>
         <p>Copyright (C) - 2021 | Developed By <a href="https://kush.lexdigital.in/">Lavkush Kumar </a> </p>
-    </footer>
+    </footer> --}}
     <script>
         // Get the modal
         var modal = document.getElementById('id01');

@@ -13,7 +13,30 @@
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-success">
+    <body class="">
+        <style>
+            .background {
+                position: absolute;
+                max-height: 636px;
+                overflow: hidden;
+                z-index: 0;
+            }
+            .boxhias1{
+                position: absolute;
+                min-height: 636px;
+                background-color: rgba(7, 56, 169, 0.6);
+                min-width: 70%;
+                margin-left: 30%;
+                /* border: 1px solid black; */
+                clip-path: polygon(50% 0, 100% 0%, 100% 100%, 0% 100%);
+             
+                
+            }
+        </style>
+        <div class="background" style=""><img
+                src="https://islami.co/wp-content/uploads/2017/10/santri-mambaus-sholihin-saat-membaca-kitab-kuning-darulanshar.wordpress.com_.jpg"
+                alt=""></div>
+                <div class="boxhias1"></div>
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -30,7 +53,7 @@
                 <footer class="footer-admin mt-auto footer-dark">
                     <div class="container-xl px-4">
                         <div class="row">
-                            <div class="col-md-6 small">Copyright &copy; Your Website 2021</div>
+                            <div class="col-md-6 small">Copyright &copy; lordver.tech 2022</div>
                             <div class="col-md-6 text-md-end small">
                                 <a href="#!">Privacy Policy</a>
                                 &middot;
