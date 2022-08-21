@@ -220,7 +220,7 @@
                                                                     <label class="small mb-1" for="inputPhone">Sekolah
                                                                         Asal</label>
                                                                     <input class="form-control" id="inputPhone"
-                                                                        name="sekolahasal" type="tel"
+                                                                        name="sekolahasal" type="text"
                                                                         placeholder="Asal Sekolah"
                                                                         value="{{ Auth::user()->siswas->SekolahAsal }}" />
                                                                 </div>
