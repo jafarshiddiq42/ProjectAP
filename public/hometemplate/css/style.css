@@ -23,7 +23,7 @@ input{
 .main{
 
     width:100%;
-    height: 658px;
+    height:768px;
     position: relative;
 }
 .logo img{
@@ -71,22 +71,6 @@ nav ul li a:hover{
     box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
     transition: all ease 0.2s;
 }
-.home-content{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    top:50%;
-    transform: translate(-50%,-50%);
-    width:90%;
-
-}
-.home-img{
-    width:300px;
-    height:400px;
-    margin:20px;
-}
 .boxinfopendaftaran{
     min-width: 90px;
     min-height: 90px;
@@ -117,9 +101,27 @@ nav ul li a:hover{
     text-align: center;
     font-weight: bold;
 }
+.home-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: url('/hometemplate/images/hero-bg.png');
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width:100%;
+    height: 100%;
+
+}
+.home-img{
+    width:500px;
+    height:400px;
+    margin:20px;
+}
 .home-img img{
-   width: 50%;
-    height: 50%;
+    width: 40%;
+    height: 40%;
     object-fit: contain;
     object-position: center;
 }
@@ -144,25 +146,27 @@ nav ul li a:hover{
     text-decoration: underline;
 }
 .main-login{
-    width:200px;
+    margin: 0 5px 0 5px;
+    width:120px;
     height:40px;
-    margin: 0 10px 0 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #36be00;
+    background-color: #009d12;
     color:#fff;
     box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
     text-transform: uppercase;
     transition: 0.3s ease-in-out;
 }
 .main-login:hover{
-    background-color: #08f100;
+    background-color: #00c117;
     transition: all ease 0.3s;
 }
+
 .main-register{
-    width:200px;
-    margin: 0 10px 0 10px;
+    margin: 0 5px 0 5px;
+    padding: 0 10px 0 10px;
+    width:120px;
     height:40px;
     display: flex;
     justify-content: center;
@@ -174,7 +178,7 @@ nav ul li a:hover{
     transition: 0.3s ease-in-out;
 }
 .main-register:hover{
-    background-color: #ff2f44;
+    background-color: #F14D5D;
     transition: all ease 0.3s;
 }
 .arrow{
@@ -307,8 +311,8 @@ nav ul li a:hover{
 
 .box{
     width:200px;
-    height: 250px;
-    /* background-color: #ffffff; */
+    height: 400px;
+    background-color: #ffffff;
     box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
@@ -518,7 +522,6 @@ nav .menu-btn{
     nav .menu-btn:checked ~ .menu{
         display: block;
     }
- 
     .home-img{
         display: none;
     }
@@ -533,6 +536,8 @@ nav .menu-btn{
     }
     .home-content{
         text-align: center;
+        align-items: flex-start;
+        padding-top: 100px;
         width:100%;
         margin:0px;
         position: static;
@@ -587,10 +592,10 @@ nav .menu-btn{
    
    .main{
   
-        padding: 75px 0px 0px 0;
+        /* padding: 75px 0px 0px 0; */
         background: url('images/hero-bg.png') no-repeat center center;
         background-size: cover;
-        height: 600px;
+        /* height: 900px; */
    }.arrow{
        left: 2%;
        margin-bottom: 15em;

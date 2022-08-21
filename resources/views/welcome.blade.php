@@ -131,6 +131,8 @@
     </body>
 </html> --}}
 
+
+
 <!doctype html>
 <html>
 
@@ -142,154 +144,12 @@
     <link rel="stylesheet" href="{{ 'hometemplate/css/style.css' }}" />
     <!--fav-icon-->
     <link rel="shortcut icon" href="{{ asset('darulihsan.png') }}" />
-    <style>
-        /* Full-width input fields */
-        input[type=text],
-        input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        /* Set a style for all buttons */
-        button {
-            background-color: #04AA6D;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        /* Extra styles for the cancel button */
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
-
-        /* Center the image and position the close button */
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-            position: relative;
-        }
-
-        img.avatar {
-            width: 40%;
-            border-radius: 50%;
-        }
-
-        .container {
-            padding: 16px;
-        }
-
-        span.psw {
-            float: right;
-            padding-top: 16px;
-        }
-
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-            padding-top: 60px;
-        }
-
-        /* Modal Content/Box */
-        .modal-content {
-            width: 400px;
-            background-color: #fefefe;
-            margin: 5% auto 15% auto;
-            /* 5% from the top, 15% from the bottom and centered */
-            border: 1px solid #888;
-            width: 80%;
-            /* Could be more or less, depending on screen size */
-        }
-
-        /* The Close Button (x) */
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: red;
-            cursor: pointer;
-        }
-
-        /* Add Zoom Animation */
-        .animate {
-            -webkit-animation: animatezoom 0.6s;
-            animation: animatezoom 0.6s
-        }
-
-        @-webkit-keyframes animatezoom {
-            from {
-                -webkit-transform: scale(0)
-            }
-
-            to {
-                -webkit-transform: scale(1)
-            }
-        }
-
-        @keyframes animatezoom {
-            from {
-                transform: scale(0)
-            }
-
-            to {
-                transform: scale(1)
-            }
-        }
-
-        /* Change styles for span and cancel button on extra small screens */
-        @media screen and (max-width: 300px) {
-            span.psw {
-                display: block;
-                float: none;
-            }
-
-            .cancelbtn {
-                width: 100%;
-            }
-        }
-    </style>
+    
 </head>
 
 <body>
 
-    <section class="main" style="background-image: url({{ asset('hometemplate/images/hero-bg.png') }});">
+    <section class="main">
 
         <nav>
             <a href="#" class="logo" style="text-decoration: none;color:#000;font-size:30px">
@@ -304,7 +164,7 @@
                 <li><a href="#">Profil / Sejarah</a></li>
                 <li><a href="#">Akademik</a></li>
                 <li><a href="#">Kitab</a></li>
-                
+
             </ul>
         </nav>
 
@@ -319,9 +179,11 @@
                     Dayah Darul Ihsan {{ date('Y') . '-' . (date('Y') + 1) }}</h1>
                 <p style="color: white;"></p>
                 <!--login-btn-->
-               <div class="" style="display: flex">
-                <a href="{{ route('register') }}" class="main-register" style="border-radius: 5px;">Daftar Sekarang</a>
-                <a href="{{ route('login') }}" class="main-login" style="border-radius: 5px;">login</a></div>
+                <div class="" style="display: flex">
+                    <a href="{{ route('register') }}" class="main-register" style="border-radius: 5px;">Daftar
+                        Sekarang</a>
+                    <a href="{{ route('login') }}" class="main-login" style="border-radius: 5px;">login</a>
+                </div>
             </div>
             <!--img-->
             <div class="home-img">
@@ -334,12 +196,12 @@
                 <marquee width="100%" direction="right" onmouseover="this.stop();" onmouseout="this.start();">
                     <a href="#" style="color: white;">Pendaftaran dibuka mulai 22 Oktober 2022</a>
                 </marquee>
-                <div class="" style="display: flex;padding-top:10px">
+                <div class="" style="display: flex;padding-top:10px;justify-content:center;">
                     <div class="boxinfopendaftaran" style="background-color: rgb(255, 230, 0)">
                         <div class="textkotak">
                             {{ $jumlahpendaftar }}
                         </div>
-                        <div class="textbantu" >Pendaftar Baru</div>
+                        <div class="textbantu">Pendaftar Baru</div>
                     </div>
                     <div class="boxinfopendaftaran" style="background-color: rgb(60, 210, 6)">
                         <div class="textkotak">
