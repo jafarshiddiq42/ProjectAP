@@ -160,10 +160,7 @@
                 <span class="nav-icon"></span>
             </label>
             <ul class="menu" style="border-radius: 5px;">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profil / Sejarah</a></li>
-                <li><a href="#">Akademik</a></li>
-                <li><a href="#">Kitab</a></li>
+            
 
             </ul>
         </nav>
