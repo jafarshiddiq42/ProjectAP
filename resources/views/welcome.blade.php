@@ -155,10 +155,7 @@
             <a href="#" class="logo" style="text-decoration: none;color:#000;font-size:30px">
                 Dayah Darul Ihsan
             </a>
-            <input class="menu-btn" type="checkbox" id="menu-btn" />
-            <label class="menu-icon" for="menu-btn">
-                <span class="nav-icon"></span>
-            </label>
+           
             <ul class="menu" style="border-radius: 5px;">
             
 
