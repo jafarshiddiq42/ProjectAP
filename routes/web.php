@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $jumlahpendaftar = Siswa::all()->count();
-    return view('welcome',compact('jumlahpendaftar'));
+    return view('welcome', compact('jumlahpendaftar'));
 });
 
 Auth::routes();
@@ -51,28 +51,35 @@ Route::group(['middleware' => 'isAdmin'], function () {
 
 
 // pendaftar
-Route::group(['middleware' => ['auth','checkpin']], function () {
+Route::group(['middleware' => ['auth', 'checkpin']], function () {
+
+
+    // kartu
+    Route::get('/kartupendaftaran', [UserController::class, 'viewkartu']);
+    Route::get('/kartupendaftaran/print', [UserController::class, 'kartuprint']);
+    // pengumuman
+    Route::get('/pengumuman', [UserController::class, 'pengumuman']);
+    Route::get('/pengumumankelulusan', [UserController::class, 'pengumumansemua']);
+    // daftarulang
+    Route::get('/daftarulang', [UserController::class, 'daftarulang']);
+    Route::post('/daftarulang', [UserController::class, 'daftarulangsubmit']);
+    Route::get('/downloadbukti', [UserController::class, 'downloadbukti']);
+    // pin
+});
+
+Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', [UserController::class, 'dashboard']);
-// formulir
+    // formulir
     Route::get('/formulirpendaftaran', [UserController::class, 'formulir']);
     Route::post('/formulirpendaftaran', [UserController::class, 'formulirsubmit']);
 
-// kartu
-    Route::get('/kartupendaftaran',[UserController::class,'viewkartu']);
-    Route::get('/kartupendaftaran/print',[UserController::class,'kartuprint']);
-// pengumuman
-    Route::get('/pengumuman', [UserController::class,'pengumuman']);
-    Route::get('/pengumumankelulusan', [UserController::class,'pengumumansemua']);
-// daftarulang
-    Route::get('/daftarulang',[UserController::class,'daftarulang']);
-    Route::post('/daftarulang',[UserController::class,'daftarulangsubmit']);
-    Route::get('/downloadbukti',[UserController::class,'downloadbukti']);
-// pin
+    // [pin]
+    Route::get('/pin', [PinController::class, 'index']);
+    Route::post('/pinsubmit', [PinController::class, 'submit']);
 });
 
-Route::get('/pin',[PinController::class,'index'])->middleware('auth');
-Route::post('/pinsubmit',[PinController::class,'submit'])->middleware('auth');
+
 
 
 

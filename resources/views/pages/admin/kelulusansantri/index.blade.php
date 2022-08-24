@@ -36,7 +36,7 @@
                 @if ($hitungtaktentu > 0)
                     <div class="col-6">
                         <div class="card">
-                            <h4 class="card-title  mt-4 mx-4">Belum Ditetapkan</h4>
+                            <h4 class="card-title  mt-4 mx-4">Belum Ditetapkan <span class="bg-secondary text-white p-2" style="border-radius:10px;float: right">{{ $hitungtaktentu }}</span></h4>
                             <div class="card-body" style="font-size: small">
                                 <form action="/admin/lulus" name="belumlulus" id="belumlulus" method="post">
                                     @csrf
@@ -142,7 +142,7 @@
                         <div class="col">
                             <div class="card card-collapsable">
                                 <a class="card-header text-dark" href="#lulus" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Lulus
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Lulus <span class="bg-green text-white p-2" style="float: right;border-radius:10px">{{ $userlulus }}</span>
                                     <div class="card-collapsable-arrow">
                                         <i class="fas fa-chevron-down"></i>
                                     </div>
@@ -214,7 +214,7 @@
                         <div class="col">
                             <div class="card card-collapsable">
                                 <a class="card-header text-dark" href="#gagal" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Gagal
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Gagal <span class="bg-danger text-white p-2" style="float: right;border-radius:10px">{{ $usergagal }}</span>
                                     <div class="card-collapsable-arrow">
                                         <i class="fas fa-chevron-down"></i>
                                     </div>
@@ -286,7 +286,7 @@
                         <div class="col">
                             <div class="card card-collapsable">
                                 <a class="card-header text-dark" href="#cadangan" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri Lulus Cadangan
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri Lulus Cadangan <span class="bg-warning text-white p-2" style="float: right;border-radius:10px">{{ $usercadang }}</span>
                                     <div class="card-collapsable-arrow">
                                         <i class="fas fa-chevron-down"></i>
                                     </div>

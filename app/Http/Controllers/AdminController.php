@@ -95,9 +95,29 @@ class AdminController extends Controller
             ->where('users.is_admin','!=',1)
             ->where('siswas.confirmed','=',1)
             ->count();
+        $userlulus = User::join('siswas','siswas.id','users.id_santri')
+        ->where('users.id_lewat','=',2)
+        ->where('users.is_admin','!=',1)
+        ->where('siswas.confirmed','=',1)
+        ->count();
+        
+        $usergagal=User::join('siswas','siswas.id','users.id_santri')
+        ->where('siswas.confirmed','=',1)
+        ->where('users.id_lewat','=',3)
+        ->where('users.is_admin','!=',1)
+        ->count()
+        ;
+        $usercadang=User::join('siswas','siswas.id','users.id_santri')
+        ->where('siswas.confirmed','=',1)
+        ->where('users.id_lewat','=',4)
+        ->where('users.is_admin','!=',1)
+        ->count()
+        ;
+
         $users = User::all()->where('is_admin','!=',1)->sortByDesc('id'); 
         // dd($hitungtaktentu);
-        return view('pages.admin.kelulusansantri.index' ,compact('users','hitungtaktentu'));
+
+        return view('pages.admin.kelulusansantri.index' ,compact('users','hitungtaktentu','userlulus','usergagal','usercadang'));
     }
     
     // 4.2 menentukan kelulusan
