@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\PinController;
 use App\Http\Controllers\UserController;
 use App\Models\Siswa;
@@ -47,6 +48,10 @@ Route::group(['middleware' => 'isAdmin'], function () {
     //berkas daftar ulang
     Route::get('/admin/daftarulang', [AdminController::class, 'listberkas']);
     Route::get('/admin/daftarulang/{id}/konfirmasi', [AdminController::class, 'listberkaskonfirmasi']);
+
+    Route::get('/admin/jadwal',[JadwalController::class,'index']);
+    Route::post('/admin/jadwal/submit',[JadwalController::class,'tambahjadwal']);
+    Route::post('/admin/jadwal/edit',[JadwalController::class,'editjadwal']);
 });
 
 

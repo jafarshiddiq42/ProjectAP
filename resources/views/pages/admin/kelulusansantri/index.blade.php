@@ -10,7 +10,7 @@
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}
     <script src="https://kit.fontawesome.com/03296025ab.js" crossorigin="anonymous"></script>
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
-    @endsection
+@endsection
 @section('content')
     <main>
         <header class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
@@ -36,61 +36,64 @@
                 @if ($hitungtaktentu > 0)
                     <div class="col-6">
                         <div class="card">
-                            <h4 class="card-title  mt-4 mx-4">Belum Ditetapkan <span class="bg-secondary text-white p-2" style="border-radius:10px;float: right">{{ $hitungtaktentu }}</span></h4>
+                            <h4 class="card-title  mt-4 mx-4">Belum Ditetapkan <span class="bg-secondary text-white p-2"
+                                    style="border-radius:10px;float: right">{{ $hitungtaktentu }}</span></h4>
                             <div class="card-body" style="font-size: small">
                                 <form action="/admin/lulus" name="belumlulus" id="belumlulus" method="post">
                                     @csrf
-                              
-                                <table id="example" class="display table table-sm">
-                                    <thead>
-                                        <tr>
 
-                                            <th>Opsi</th>
-                                            <th>Nama Santri</th>
-                                            <th>No Pendaftaran</th>
-                                            {{-- <th>NISN</th> --}}
-                                            <th>Instansi Pilihan</th>
-                                            {{-- <th class="text-center">Aksi</th> --}}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                      
-                                        @forelse ($users as $user)
-                                            @if ($user->siswas->confirmed == 1 and $user->id_lewat == 1)
-                                                <tr>
-                                                    <td class="">
-                                                        <div class="form-check form-check-solid ">
-                                                            <input class="form-check-input" style="width: 20px;height:20px"
-                                                                id="flexCheckSolidDefault" name="idterpilih[]" type="checkbox"
-                                                                value="{{ $user->id }}">
+                                    <table id="example" class="display table table-sm">
+                                        <thead>
+                                            <tr>
 
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex align-items-center">
-                                                            {{-- <div class="avatar me-2"><img class="avatar-img img-fluid"
+                                                <th>Opsi</th>
+                                                <th>Nama Santri</th>
+                                                <th>No Pendaftaran</th>
+                                                {{-- <th>NISN</th> --}}
+                                                <th>Instansi Pilihan</th>
+                                                {{-- <th class="text-center">Aksi</th> --}}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @forelse ($users as $user)
+                                                @if ($user->siswas->confirmed == 1 and $user->id_lewat == 1)
+                                                    <tr>
+                                                        <td class="">
+                                                            <div class="form-check form-check-solid ">
+                                                                <input class="form-check-input"
+                                                                    style="width: 20px;height:20px"
+                                                                    id="flexCheckSolidDefault" name="idterpilih[]"
+                                                                    type="checkbox" value="{{ $user->id }}">
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                {{-- <div class="avatar me-2"><img class="avatar-img img-fluid"
                                                                     src="@if ($user->siswas->JKelamin == 'L') {{ asset('sbadmin/assets/img/illustrations/profiles/profile-2.png') }} @else {{ asset('sbadmin/assets/img/illustrations/profiles/profile-1.png') }} @endif" />
                                                             </div> --}}
-                                                            {{ $user->siswas->NamaLengkap }}
-                                                        </div>
-                                                    </td>
-                                                    <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
-                                                    {{-- <td>{{ $user->siswas->NISN }}</td> --}}
-                                                    <td>
-                                                        @if ($user->siswas->Instansi == 'SMK')
-                                                            <div class="badge bg-blue-soft text-blue"> Sekolah Menengah
-                                                                Kejuruan
+                                                                {{ $user->siswas->NamaLengkap }}
                                                             </div>
-                                                        @elseif($user->siswas->Instansi == 'MAN')
-                                                            <div class="badge bg-green-soft text-green"> Madrasah Aliyah
-                                                            </div>
-                                                        @else
-                                                            <div class="badge bg-warning-soft text-warning"> Madrasah
-                                                                Tsanawiyah
-                                                            </div>
-                                                        @endif
-                                                    </td>
-                                                    {{-- <td class="text-center">
+                                                        </td>
+                                                        <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}
+                                                        </td>
+                                                        {{-- <td>{{ $user->siswas->NISN }}</td> --}}
+                                                        <td>
+                                                            @if ($user->siswas->Instansi == 'SMK')
+                                                                <div class="badge bg-blue-soft text-blue"> Sekolah Menengah
+                                                                    Kejuruan
+                                                                </div>
+                                                            @elseif($user->siswas->Instansi == 'MAN')
+                                                                <div class="badge bg-green-soft text-green"> Madrasah Aliyah
+                                                                </div>
+                                                            @else
+                                                                <div class="badge bg-warning-soft text-warning"> Madrasah
+                                                                    Tsanawiyah
+                                                                </div>
+                                                            @endif
+                                                        </td>
+                                                        {{-- <td class="text-center">
                                                             <form action="/admin/lulus/{{ $user->id }}" method="post">
                                                                 @csrf
                                                                 <select name="statuslulus" id="" class="form-control form-control-sm" onchange="this.form.submit()">
@@ -105,33 +108,31 @@
                                                                 </select>
                                                             </form>
                                                      </td> --}}
-                                                </tr>
-                                            @endif
-                                        @empty
-                                        @endforelse
+                                                    </tr>
+                                                @endif
+                                            @empty
+                                            @endforelse
 
 
-                                    </tbody>
-                                </table>
-                                <div class="pt-4" style="border-top: 1px solid">
-                                   <b> Tetapkan status</b><br>
-                                   <small class="text-danger">*tetapkan status kepada yg ter-<i>checklist</i></small>
-                                    <select name="statuslulus" id="" class="form-control form-control-sm my-3" >
-                                        <option 
-                                            value="-">-- Pilih Status --</option>
-                                        <option 
-                                            value="2">Lulus</option>
-                                        <option 
-                                            value="3">Tidak Lulus</option>
-                                        <option 
-                                            value="4">Lulus Cadangan</option>
-                                    </select>
-                                    <div class="">
-                                        <a style="float: right" href="#" onclick="event.preventDefault();$('#belumlulus').submit();"  class="btn btn-sm btn-primary">Ubah</a>
-                                        
+                                        </tbody>
+                                    </table>
+                                    <div class="pt-4" style="border-top: 1px solid">
+                                        <b> Tetapkan status</b><br>
+                                        <small class="text-danger">*tetapkan status kepada yg ter-<i>checklist</i></small>
+                                        <select name="statuslulus" id="" class="form-control form-control-sm my-3">
+                                            <option value="-">-- Pilih Status --</option>
+                                            <option value="2">Lulus</option>
+                                            <option value="3">Tidak Lulus</option>
+                                            <option value="4">Lulus Cadangan</option>
+                                        </select>
+                                        <div class="">
+                                            <a style="float: right" href="#"
+                                                onclick="event.preventDefault();$('#belumlulus').submit();"
+                                                class="btn btn-sm btn-primary">Ubah</a>
+
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
 
                         </div>
@@ -142,7 +143,9 @@
                         <div class="col">
                             <div class="card card-collapsable">
                                 <a class="card-header text-dark" href="#lulus" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Lulus <span class="bg-green text-white p-2" style="float: right;border-radius:10px">{{ $userlulus }}</span>
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Lulus
+                                    <span class="bg-green text-white p-2"
+                                        style="float: right;border-radius:10px">{{ $userlulus }}</span>
                                     <div class="card-collapsable-arrow">
                                         <i class="fas fa-chevron-down"></i>
                                     </div>
@@ -192,7 +195,9 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="/admin/batal/{{ $user->id }}"   data-bs-toggle="tooltip" data-bs-placement="top" title="Batalkan Status"
+                                                                <a href="/admin/batal/{{ $user->id }}"
+                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Batalkan Status"
                                                                     class="btn btn-datatable px-4  btn-icon btn-danger"><i
                                                                         class="fa-solid fa-eject"></i></a>
 
@@ -214,7 +219,9 @@
                         <div class="col">
                             <div class="card card-collapsable">
                                 <a class="card-header text-dark" href="#gagal" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Gagal <span class="bg-danger text-white p-2" style="float: right;border-radius:10px">{{ $usergagal }}</span>
+                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri yang Gagal
+                                    <span class="bg-danger text-white p-2"
+                                        style="float: right;border-radius:10px">{{ $usergagal }}</span>
                                     <div class="card-collapsable-arrow">
                                         <i class="fas fa-chevron-down"></i>
                                     </div>
@@ -264,7 +271,9 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="/admin/batal/{{ $user->id }}"   data-bs-toggle="tooltip" data-bs-placement="top" title="Batalkan Status"
+                                                                <a href="/admin/batal/{{ $user->id }}"
+                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Batalkan Status"
                                                                     class="btn btn-datatable px-4  btn-icon btn-danger"><i
                                                                         class="fa-solid fa-eject"></i></a>
 
@@ -285,8 +294,10 @@
                     <div class="row">
                         <div class="col">
                             <div class="card card-collapsable">
-                                <a class="card-header text-dark" href="#cadangan" data-bs-toggle="collapse" role="button"
-                                    aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon Santri Lulus Cadangan <span class="bg-warning text-white p-2" style="float: right;border-radius:10px">{{ $usercadang }}</span>
+                                <a class="card-header text-dark" href="#cadangan" data-bs-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">Daftar Calon
+                                    Santri Lulus Cadangan <span class="bg-warning text-white p-2"
+                                        style="float: right;border-radius:10px">{{ $usercadang }}</span>
                                     <div class="card-collapsable-arrow">
                                         <i class="fas fa-chevron-down"></i>
                                     </div>
@@ -336,7 +347,9 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="/admin/batal/{{ $user->id }}"   data-bs-toggle="tooltip" data-bs-placement="top" title="Batalkan Status"
+                                                                <a href="/admin/batal/{{ $user->id }}"
+                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Batalkan Status"
                                                                     class="btn btn-datatable px-4  btn-icon btn-danger"><i
                                                                         class="fa-solid fa-eject"></i></a>
 
@@ -356,24 +369,27 @@
                     </div>
                 </div>
             </div>
-          {{--  --}}
-     
-        
-          
-          <!-- Toast container -->
-          <div style="position: absolute; bottom: 1rem; right: 1rem;">
-              <!-- Toast -->
-              <div class="toast" id="toastBasic" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
-                  <div class="toast-header">
-                      <i data-feather="bell"></i>
-                      <strong class="mr-auto">Toast with Autohide</strong>
-                      <small class="text-muted ml-2">just now</small>
-                      <button class="ml-2 mb-1 btn-close" type="button" data-bs-dismiss="toast" aria-label="Close">                                                                </button>
-                  </div>
-                  <div class="toast-body">This is an example toast alert, it will dismiss automatically, or you can dismiss it manually.</div>
-              </div>
-          </div>
-{{--  --}}
+            {{--  --}}
+
+
+
+            <!-- Toast container -->
+            <div style="position: absolute; bottom: 1rem; right: 1rem;">
+                <!-- Toast -->
+                <div class="toast" id="toastBasic" role="alert" aria-live="assertive" aria-atomic="true"
+                    data-bs-delay="3000">
+                    <div class="toast-header">
+                        <i data-feather="bell"></i>
+                        <strong class="mr-auto">Toast with Autohide</strong>
+                        <small class="text-muted ml-2">just now</small>
+                        <button class="ml-2 mb-1 btn-close" type="button" data-bs-dismiss="toast" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="toast-body">This is an example toast alert, it will dismiss automatically, or you can
+                        dismiss it manually.</div>
+                </div>
+            </div>
+            {{--  --}}
         </div>
     </main>
 @endsection
@@ -391,7 +407,7 @@
                     "zeroRecords": "Data tidak ditemukan",
                     "info": "Halaman _PAGE_ dari _PAGES_",
                     "infoEmpty": "Data tidak ditemukan",
-                    "search":         "",
+                    "search": "",
                     "infoFiltered": "(dari _MAX_ data)",
                     "paginate": {
                         "first": "Pertama",
@@ -403,10 +419,9 @@
                 },
                 "stripeClasses": []
             });
-         $('div.dataTables_filter input').attr("placeholder", "Cari...");
-        
-        });
+            $('div.dataTables_filter input').attr("placeholder", "Cari...");
 
+        });
     </script>
     @if (Session::has('status'))
         <script>
@@ -415,4 +430,4 @@
     @endif
     {{-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> --}}
     {{-- <script src="{{ asset('sbadmin/js/datatables/datatables-simple-demo.js') }}"></script> --}}
-   @endsection
+@endsection

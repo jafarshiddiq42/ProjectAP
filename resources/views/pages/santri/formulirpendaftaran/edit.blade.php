@@ -91,7 +91,7 @@
                                                                                 Lengkap</label>
                                                                             <input class="form-control " id="inputFirstName"
                                                                                 type="text"
-                                                                                value="{{ old('namalengkap') }}"
+                                                                                value="@if (Auth::user()->siswas->NamaLengkap != '') {{ Auth::user()->siswas->NamaLengkap }} @endif "
                                                                                 name="namalengkap"
                                                                                 placeholder="Nama calon Santri" />
                                                                         </div>
@@ -101,7 +101,7 @@
                                                                             <label class="small mb-1"
                                                                                 for="inputFirstName">NISN</label>
                                                                             <input class="form-control" name="nisn"
-                                                                                value="{{ old('nisn') }}"
+                                                                                value="@if (Auth::user()->siswas->NISN != '') {{ Auth::user()->siswas->NISN }} @endif"
                                                                                 type="text" placeholder="NISN" />
                                                                         </div>
                                                                     </div>
@@ -203,14 +203,14 @@
                                                                         <input class="form-control" name="tptlahir"
                                                                             id="inputEmailAddress" type="text"
                                                                             placeholder="Tempat Lahir"
-                                                                            value="{{ old('tptlahir') }}" />
+                                                                            value="@if (Auth::user()->siswas->TptLahir != '') {{ Auth::user()->siswas->TptLahir }} @endif" />
                                                                     </div>
                                                                     <div class="col-md-6"> <label class="small mb-1"
                                                                             for="inputEmailAddress">Tanggal
                                                                             Lahir</label>
                                                                         <input class="form-control" type="date"
                                                                             name="tgllahir"
-                                                                            value="{{ old('tgllahir') }}"
+                                                                            value="{{ Auth::user()->siswas->TglLahir }}"
                                                                             placeholder="Enter your email address" />
                                                                     </div>
 
@@ -223,7 +223,7 @@
                                                                     <input class="form-control" id="inputPhone"
                                                                         name="sekolahasal" type="text"
                                                                         placeholder="Asal Sekolah"
-                                                                        value="{{ old('sekolahasal') }}" />
+                                                                        value="{{ Auth::user()->siswas->SekolahAsal }}" />
                                                                 </div>
                                                                 <div class="col-md-6 mb-0">
                                                                     <label class="small mb-1"
@@ -231,7 +231,7 @@
                                                                     <input class="form-control" id="inputBirthday"
                                                                         name="kewarganegaraan" type="text"
                                                                         name="birthday" placeholder="Kewarganegaraan"
-                                                                        value="{{ old('kewarganegaraan') }}" />
+                                                                        value="{{ Auth::user()->siswas->Kewarganegaraan }}" />
                                                                 </div>
                                                             </div>
                                                             <div class="row my-3 ">
@@ -239,7 +239,7 @@
                                                                     <label class="small mb-1"
                                                                         for="inputFirstName">Alamat</label>
                                                                     <input type="text" name="alamat"
-                                                                        value="{{ old('alamat') }}"
+                                                                        value="{{ Auth::user()->siswas->Alamat }}"
                                                                         placeholder="Alamat" class="form-control"
                                                                         id="">
 
@@ -272,7 +272,7 @@
                                                                         Ayah</label>
                                                                     <input class="form-control" name="namaayah"
                                                                         id="inputFirstName"
-                                                                        value="{{ old('namaayah') }}"
+                                                                        value="{{ Auth::user()->siswas->NamaAyah }}"
                                                                         type="text" placeholder="Nama Ayah" />
                                                                 </div>
                                                                 <div class="mb-3 col-md-6">
@@ -281,7 +281,7 @@
                                                                         HP</label>
                                                                     <input class="form-control" name="hpayah"
                                                                         id="inputFirstName"
-                                                                        value="{{ old('hpayah') }}"
+                                                                        value="{{ Auth::user()->siswas->HpAyah }}"
                                                                         type="text" placeholder="Nomor Hp" />
                                                                 </div>
 
@@ -293,7 +293,7 @@
                                                                         for="inputFirstName">Pendidikan
                                                                     </label>
                                                                     <input class="form-control" name="pendidikanayah"
-                                                                        value="{{ old('pendidikanayah') }}"
+                                                                        value="{{ Auth::user()->siswas->PendidikanAyah }}"
                                                                         id="inputFirstName" type="text"
                                                                         placeholder="Pendidikan Ayah" />
                                                                 </div>
@@ -303,7 +303,7 @@
                                                                         for="inputFirstName">Pekerjaan</label>
                                                                     <input class="form-control" id="inputFirstName"
                                                                         name="pekerjaanayah"
-                                                                        value="{{ old('pekerjaanayah') }}"
+                                                                        value="{{ Auth::user()->siswas->PekerjaanAyah }}"
                                                                         type="text" placeholder="Pekerjaan Ayah" />
                                                                 </div>
 
@@ -354,7 +354,7 @@
                                                                         Ibu</label>
                                                                     <input class="form-control" id="inputFirstName"
                                                                         name="namaibu"
-                                                                        value="{{ old('namaibu') }}"
+                                                                        value="{{ Auth::user()->siswas->NamaIbu }}"
                                                                         type="text" placeholder="Nama Ibu" />
                                                                 </div>
                                                                 <div class="mb-3 col-md-6">
@@ -363,7 +363,7 @@
                                                                         HP</label>
                                                                     <input class="form-control" id="inputFirstName"
                                                                         name="hpibu"
-                                                                        value="{{ old('hpibu') }}"
+                                                                        value="{{ Auth::user()->siswas->HpIbu }}"
                                                                         type="text" placeholder="Nomor Hp" />
                                                                 </div>
 
@@ -376,7 +376,7 @@
                                                                     </label>
                                                                     <input class="form-control" id="inputFirstName"
                                                                         name="pendidikanibu"
-                                                                        value="{{ old('pendidikanibu') }}"
+                                                                        value="{{ Auth::user()->siswas->PendidikanIbu }}"
                                                                         type="text" placeholder="Pendidikan Ibu" />
                                                                 </div>
                                                                 <div class="mb-3 col-md-6">
@@ -385,7 +385,7 @@
                                                                         for="inputFirstName">Pekerjaan</label>
                                                                     <input class="form-control" id="inputFirstName"
                                                                         name="pekerjaanibu"
-                                                                        value="{{ old('pekerjaanibu') }}"
+                                                                        value="{{ Auth::user()->siswas->PekerjaanIbu }}"
                                                                         type="text" placeholder="Pekerjaan Ibu" />
                                                                 </div>
 
@@ -459,7 +459,7 @@
                                                                     <label class="small mb-1" for="inputFirstName">Nama
                                                                         Wali</label>
                                                                     <input class="form-control" name="namawali"
-                                                                        value="{{ old('namawali') }}"
+                                                                        value="{{ Auth::user()->siswas->NamaWali }}"
                                                                         id="inputFirstName" type="text"
                                                                         placeholder="Nama Wali" />
                                                                 </div>
@@ -468,7 +468,7 @@
                                                                     <label class="small mb-1" for="inputFirstName">No
                                                                         HP</label>
                                                                     <input class="form-control" name="hpwali"
-                                                                        value="{{ old('hpwali') }}"
+                                                                        value="{{ Auth::user()->siswas->HpWali }}"
                                                                         id="inputFirstName" type="text"
                                                                         placeholder="Nomor Hp" />
                                                                 </div>
@@ -481,7 +481,7 @@
                                                                         for="inputFirstName">Hubungan
                                                                     </label>
                                                                     <input class="form-control" name="hubunganwali"
-                                                                        value="{{ old('hubunganwali') }}"
+                                                                        value="{{ Auth::user()->siswas->HubunganWali }}"
                                                                         id="inputFirstName" type="text"
                                                                         placeholder="Hubungan Wali" />
                                                                 </div>
@@ -490,7 +490,7 @@
                                                                     <label class="small mb-1"
                                                                         for="inputFirstName">Pekerjaan</label>
                                                                     <input class="form-control" name="pekerjaanwali"
-                                                                        value="{{ old('pekerjaanwali') }}"
+                                                                        value="{{ Auth::user()->siswas->PekerjaanWali }}"
                                                                         id="inputFirstName" type="text"
                                                                         placeholder="Pekerjaan Wali" />
                                                                 </div>
@@ -555,7 +555,7 @@
                                                                                 <label class="small mb-1"
                                                                                     for="inputFirstName">Berat Badan</label>
                                                                                 <input type="number" name="bb"
-                                                                                    value="{{ old('bb') }}"
+                                                                                    value="{{ Auth::user()->siswas->BB }}"
                                                                                     id="" class="form-control"
                                                                                     placeholder="Berat Badan">
     
@@ -565,7 +565,7 @@
                                                                                 <label class="small mb-1"
                                                                                     for="inputFirstName">Tinggi Badan</label>
                                                                                 <input type="number" name="tb"
-                                                                                    value="{{ old('tb') }}"
+                                                                                    value="{{ Auth::user()->siswas->TB }}"
                                                                                     id="" class="form-control"
                                                                                     placeholder="Tinggi Badan">
     

@@ -19,7 +19,7 @@ class DumpsiswaSeed extends Seeder
     public function run()
     {
         $start = 1;
-        $end = 50;
+        $end = 20;
 
 
 
@@ -48,6 +48,7 @@ class DumpsiswaSeed extends Seeder
             );
             Siswa::create(  $dataTessiswa = [
                 'NamaLengkap'=>'user-'.strval($start),
+                'JKelamin'=>'L',
                 'confirmed'=>'1',
                 'Instansi'=>$instansi[array_rand($instansi)],   
             ]);

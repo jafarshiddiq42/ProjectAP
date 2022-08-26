@@ -95,25 +95,23 @@
                                     style="width: 90%;font-size:11px">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
+                                            
                                             <th>Nama Tes</th>
                                             <th>Tanggal</th>
                                             <th>Pukul</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Tes Tulis</td>
-                                            <td>30-07-2022</td>
-                                            <td>12:06</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Wawancara</td>
-                                            <td>30-07-2022</td>
-                                            <td>12:06</td>
-                                        </tr>
+                                        @forelse ($jadwals as $jadwal)
+                                            <tr>
+                                             
+                                                <td>{{ $jadwal->namajadwal }}</td>
+                                                <td>{{ date_format(date_create($jadwal->jadwal),'d-m-Y') }}</td>
+                                                <td>{{ date_format(date_create($jadwal->jadwal),'H:i:s') }}</td>
+                                            </tr>
+                                        @empty
+                                            
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </td>

@@ -41,6 +41,7 @@ class AdminController extends Controller
     public function listprofil()
     {
         $users = User::all()->except(Auth::id()); 
+        // dd($users);
         return view('pages.admin.profilsantri.index',compact('users'));
 
     }

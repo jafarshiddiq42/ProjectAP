@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dftrulang;
+use App\Models\Jadwal;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -110,8 +111,9 @@ class UserController extends Controller
     }
     public function kartuprint()
     {
+        $jadwals =Jadwal::all();
         $siswa = Siswa::find(Auth::user()->id_santri);
-        return view('pages.santri.kartupendaftaran.printkartu',compact('siswa'));
+        return view('pages.santri.kartupendaftaran.printkartu',compact('siswa','jadwals'));
         // dd($siswa);
 
     }

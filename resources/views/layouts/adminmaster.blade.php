@@ -96,6 +96,10 @@
                                 <div class="nav-link-icon"><i class="fa-solid fa-id-card"></i></i></div>
                                Biodata Santri
                             </a>
+                            <a class="nav-link" href="/admin/jadwal">
+                                <div class="nav-link-icon"><i class="fa-solid fa-clock"></i></div>
+                                Jadwal Ujian
+                            </a>
                             <a class="nav-link" href="/admin/status">
                                 <div class="nav-link-icon"><i class="fa-solid fa-bullhorn"></i></div>
                                 Kelulusan
