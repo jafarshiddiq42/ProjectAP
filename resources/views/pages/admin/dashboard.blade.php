@@ -53,6 +53,20 @@
                     </div>
                     <div class="col-lg-4 mb-4">
                         <!-- Knowledge base category card 1-->
+                        <a class="card bg-light lift lift-sm h-100" href="/admin/jadwal">
+                            <div class="card-body ">
+                                <h5 class="card-title text-primary mb-2">
+                                    <i class="me-2" data-feather="clock"></i>
+                                  Jadwal
+                                </h5>
+                                </div>
+                            <div class="card-footer"><div class="small text-muted">
+                            Kelulusan Calon Santri    
+                            </div></div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <!-- Knowledge base category card 1-->
                         <a class="card bg-light lift lift-sm h-100" href="/admin/status">
                             <div class="card-body ">
                                 <h5 class="card-title text-primary mb-2">

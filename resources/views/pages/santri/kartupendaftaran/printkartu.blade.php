@@ -33,90 +33,66 @@
                 
             </div>
             
-            <div class="overdflow-auto" >
-                <table class="m-2 mt-3" style="width: 100%;font-size:11px">
-                    <div class="table-group">
-                        <tr>
-                            <td style="width: 50%">
-                                <b>Data Pribadi</b>
-                            </td>
-                            <td style="width: 20%" class="text-center" rowspan="">
-                                <div class="  "><b> No.Pendaftaran <br> {{ 'SB-' . str_pad($siswa->id, 3, 0, STR_PAD_LEFT) }} </b></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Nama : <b>{{ $siswa->NamaLengkap }}</b></td>
-                            <td style="width: 1cm;height:2cm;" class="text-center "
-                                rowspan="5">
-                                <div class="s">
-                                    <img style="width: 1.5cm;heigh:2.5cm;"
-                                        src="{{ asset($siswa->PasFoto) }}"
-                                        alt="">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jenis Kelamin : <b>
-                                @if ($siswa->JKelamin == 'L')
-                                    Laki-laki
-                                @else
-                                    Perempuan
-                                @endif
-                            </b>
-                            </td>
-                        </tr>
-                        <tr><td>Nama Ayah : <b>{{ $siswa->NamaAyah }}</b></td></tr>
-                        <tr>
-                            <td>Tempat/tanggal Lahir : <b>{{ $siswa->TptLahir }} / {{ date_format(date_create($siswa->TglLahir),'d-m-Y') }}</b></td>
-                        </tr>
-                    </div>
+            <div class="overdflow-auto m-2" >
+                <table style="width: 100%" class="m-1 my-4">
+                   <tr>
+                    <td><b>Data Pribadi</b></td>
+                    <td></td>
+                    <td class="text-center">{{ 'SB-'.str_pad($siswa->id,0,3,STR_PAD_LEFT) }}</td>
+                   </tr>
+                    <tr>
+                        <td>Nama Lengkap</td>
+                        <td>: <b>{{ $siswa->NamaLengkap }}</b></td>
+                        <td rowspan="5"><div  style="max-width: 3cm;max-heigh:4cm;" class="" ><img style="max-width: 3cm;max-heigh:4cm;width:-webkit-fill-available" src="{{ asset($siswa->PasFoto) }}" alt=""></div></td>
+                    </tr>
+                    <tr>
+                        <td>Jenis kelamin</td>
+                        <td>: <b>@if ( $siswa->JKelamin  == 'L')
+                            Laki-laki
+                        @else
+                            Perempuan
+                        @endif</b></td>
+                    </tr>
+                    <tr>
+                        <td>Tempat/Tanggal Lahir</td>
+                        <td>: <b>{{ $siswa->TptLahir.'/'.$siswa->TglLahir }}</b></td>
+                    </tr>
+                    <tr>
+                        <td>Mendaftar Pada</td>
+                        <td>: 
+                           <b>
+                            @if ($siswa->Instansi == 'SMK')
+                            <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan</div>
+                        @elseif($siswa->Instansi == 'MAN')
+                            <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
+                        @else
+                            <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah</div>
+                        @endif  
+                           </b>
+                        </td>
+                    </tr>
+                </table>
 
-                    <div class="table-group">
+                <table style="font-size: small" class=" table table-sm  m-1 my-1">
+                    <thead>
                         <tr>
-                            <td>Mendaftar pada : <b>
-                                @if ($siswa->Instansi == 'SMK')
-                                <div class="badge bg-blue-soft text-blue"> Sekolah Menengah Kejuruan</div>
-                            @elseif($siswa->Instansi == 'MAN')
-                                <div class="badge bg-green-soft text-green"> Madrasah Aliyah</div>
-                            @else
-                                <div class="badge bg-warning-soft text-warning"> Madrasah Tsanawiyah</div>
-                            @endif    
-                            </b></td>
+                            <th>Ujian</th>
+                            <th>Tanggal</th>
+                            <th>Jadwal</th>
                         </tr>
-                    </div>
-
-                    <div class="table-group ">
-                        <tr>
-                            <td> <b>Waktu Tes</b></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <table class="table table-sm table-light "
-                                    style="width: 90%;font-size:11px">
-                                    <thead>
-                                        <tr>
-                                            
-                                            <th>Nama Tes</th>
-                                            <th>Tanggal</th>
-                                            <th>Pukul</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse ($jadwals as $jadwal)
-                                            <tr>
-                                             
-                                                <td>{{ $jadwal->namajadwal }}</td>
-                                                <td>{{ date_format(date_create($jadwal->jadwal),'d-m-Y') }}</td>
-                                                <td>{{ date_format(date_create($jadwal->jadwal),'H:i:s') }}</td>
-                                            </tr>
-                                        @empty
-                                            
-                                        @endforelse
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </div>
+                    </thead>
+                    <tbody>
+                    @forelse ($jadwals as $jadwal)
+                    <tr>
+                     
+                        <td>{{ $jadwal->namajadwal }}</td>
+                        <td>{{ date_format(date_create($jadwal->jadwal),'d-m-Y') }}</td>
+                        <td>{{ date_format(date_create($jadwal->jadwal),    'H:i:s') }}</td>
+                    </tr>
+                @empty
+                    
+                @endforelse
+            </tbody>
                 </table>
                 <div class="" style="border-top: 1px solid">
                 <div class="mx-3 mt-2 " style="font-size: 9px;color:red">

@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text">jadwal yang akan ditampilkan pada kartu ujian</p>
-                    <div class="">
+                    {{-- <div class="">
                         <button style="float: right" class="btn btn-primary" type="button" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Tambah data</button>
 
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="">
                         <table class="table ">
                             <thead>

@@ -1,7 +1,7 @@
 @extends('layouts.usermaster')
 @section('content')
     <main>
-        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+        <header class="page-header page-header-dark pb-10" id="bgpokoknya">
             <div class="container-xl px-4">
                 <div class="page-header-content pt-4">
                     <div class="row align-items-center justify-content-between">
@@ -9,10 +9,19 @@
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i class="fa-solid fa-file-arrow-up"></i></div>
                                 Daftar Ulang
+                                
+                                
                             </h1>
+                            
                             <div class="page-header-subtitle">Upload Berkas Pendaftaran Ulang</div>
                         </div>
+                        <div class="col">
+                                
+                            <div style="float: right" class="page-header-title" id="txtbantu">Sisa Waktu Pendaftaran</div>   
+                            <div style="float: right" class="page-header-title" id="demo"></div>   
+                        </div>
                     </div>
+
                 </div>
             </div>
         </header>
@@ -24,7 +33,7 @@
 
                 <div class="card-body">
                     <div class="container">
-                        <form action="" id="formupload" method="post" name="formupload" enctype="multipart/form-data">
+                        <form action="" id="formupload"  method="post" name="formupload" enctype="multipart/form-data">
                             @csrf
                             {{-- buktibayar --}}
                             <div class="form-group mb-3 py-3" style="border-bottom-style:solid">
@@ -47,7 +56,7 @@
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="bukti" id="buktifile" class="form-control">
-
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
                                     </div>
 
                                 </div>
@@ -76,6 +85,7 @@
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="nisn" id="nisnfile" class="form-control    ">
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
 
                                     </div>
 
@@ -97,6 +107,7 @@
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="ktpayah" id="ktpfileayah" class="form-control    ">
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
 
                                     </div>
 
@@ -116,6 +127,7 @@
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="ktpibu" id="ktpfileibu" class="form-control    ">
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
 
                                     </div>
 
@@ -135,6 +147,7 @@
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="ska" id="skasafile" class="form-control    ">
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
 
                                     </div>
 
@@ -161,6 +174,7 @@
 
                                         </div>
                                         <input type="file" name="npsn" id="npsnfile" class="form-control    ">
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
 
                                     </div>
 
@@ -180,6 +194,7 @@
                                                 style="width: -webkit-fill-available;">
                                         </div>
                                         <input type="file" name="fc_kk" id="kkfile" class="form-control    ">
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
 
                                     </div>
 
@@ -197,9 +212,10 @@
                                             onclick="$('#aktafile').click()">
                                             <img src="{{ asset(Auth::user()->dftrulangs->fc_akta) }}" id="akta" alt=""
                                                 style="width: -webkit-fill-available;">
-                                                
+                                            
                                         </div>
                                         <input type="file" name="fc_akta" id="aktafile" class="form-control    ">
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
 
                                     </div>
 
@@ -215,6 +231,43 @@
     </main>
 @endsection
 @section('Script')
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("2022-08-27 15:37:25").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get today's date and time
+      var now = new Date().getTime();
+    
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+    
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = days + "Hari " + hours + "Jam "
+      + minutes + "Menit " + seconds + "Detik ";
+      document.getElementById("bgpokoknya").style.backgroundColor = "blue";
+    
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+        document.getElementById("formupload").style.display = "none";
+        document.getElementById("txtbantu").style.display = "none";
+        document.getElementById("bgpokoknya").style.backgroundColor = "red";
+
+      }
+    }, 1000);
+
+    </script>
+
     <script>
         // ibu
         divbukti.style.borderStyle = 'dashed'
