@@ -24,6 +24,7 @@ class userSeeder extends Seeder
             //  ],
              [
                  'name'=>'admin',
+                 'nik'=>12345,
                  'phone'=>'admin1@jafar.com',
                  'checkpin'=>true,
                  'is_admin'=>'1',

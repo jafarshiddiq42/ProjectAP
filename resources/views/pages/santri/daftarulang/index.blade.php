@@ -233,7 +233,7 @@
 @section('Script')
 <script>
     // Set the date we're counting down to
-    var countDownDate = new Date("2022-08-27 15:37:25").getTime();
+    var countDownDate = new Date("2022-08-31 12:00:00").getTime();
     
     // Update the count down every 1 second
     var x = setInterval(function() {

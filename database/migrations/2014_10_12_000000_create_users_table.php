@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
+            $table->string('nik')->unique();
             $table->string('pin')->nullable();
             $table->boolean('checkpin')->nullable()->default(false);
             $table->string('id_santri')->nullable();

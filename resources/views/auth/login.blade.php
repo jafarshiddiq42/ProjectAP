@@ -93,12 +93,12 @@
                 @csrf
                 <!-- Form Group (email address)-->
                 <div class="mb-3">
-                    <label class="small mb-1" for="inputEmailAddress">Nomor WhatsApp</label>
+                    <label class="small mb-1" for="inputEmailAddress">NIK</label>
                     <input id="email" type="text"
-                    class="form-control @error('phone') is-invalid @enderror" name="phone"
-                    value="{{ old('phone') }}" required autocomplete="email" autofocus>
+                    class="form-control @error('nik') is-invalid @enderror" name="nik"
+                    value="{{ old('nik') }}" required autocomplete="email" autofocus>
 
-                @error('phone')
+                @error('nik')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

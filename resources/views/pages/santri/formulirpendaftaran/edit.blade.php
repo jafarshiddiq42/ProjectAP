@@ -172,10 +172,6 @@
                                                                                 id="blah" height="265px"
                                                                                 alt="">
                                                                         </div>
-
-
-
-
                                                                     </div>
 
                                                                     <label class="small mb-1" for="inputLocation">Pas

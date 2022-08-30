@@ -36,6 +36,7 @@ class DumpsiswaSeed extends Seeder
             User::create(
                 $dataTesuser = [
                     'name'=>'user-'.strval($start),
+                    'nik'=>rand(100000,999999),
                     'phone'=>rand(10000,99999),
                     'checkpin'=>false,
                     'pin'=>rand(10000,99999),

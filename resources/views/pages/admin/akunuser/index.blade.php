@@ -90,10 +90,11 @@
                         <thead>
                             <tr>
                                 <th>no.</th>
-                                <th>No WA</th>
+                                <th>NIK</th>
                                 <th>Nama Akun</th>
                                 <th>No Pendaftaran</th>
                                 <th>Tanggal Daftar</th>
+                                <th>No WA</th>
                                 <th>Pin</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -103,10 +104,11 @@
                             @forelse ($users as $user)
                                 <tr>
                                     <td>{{ $nomor++ }}</td>
-                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->nik }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ 'SB-' . str_pad($user->siswas->id, 3, 0, STR_PAD_LEFT) }}</td>
                                     <td>{{ date_format(date_create($user->created_at), 'Y-m-d') }}</td>
+                                    <td>{{ $user->phone }}</td>
                                     <td>{{ $user->pin }}</td>
                                     <td class="text-center" style="width: 20%">
                                         <form action="/admin/users/reset" method="post" id="formreset-{{ $user->id }}">

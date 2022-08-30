@@ -99,6 +99,7 @@ class RegisterController extends Controller
             ]);
             return User::create([
                 'name' => $data['name'],
+                'nik' => $data['nik'],
                 'phone' => $data['phone'],
                 'password' => Hash::make($data['password']),
                 'id_santri' =>  1,
@@ -121,6 +122,7 @@ class RegisterController extends Controller
 
             return User::create([
                 'name' => $data['name'],
+                'nik' => $data['nik'],
                 'phone' => $data['phone'],
                 'password' => Hash::make($data['password']),
                 'id_santri' => $nomorbaru->id + 1,

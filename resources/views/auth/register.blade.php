@@ -108,11 +108,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="row gx-3">
+                    <div class="col">
+                        <!-- Form Group (first name)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputFirstName">NIK</label>
+                            <input class="form-control" name="nik" id="inputFirstName" type="text" placeholder="NIK" />
+                        
+                        </div>
+                    </div>
+                </div>
                 <!-- Form Group (email address)            -->
                 <div class="mb-3">
                     <label class="small mb-1" for="inputEmailAddress">Nomor WhatsApp</label>
                     <input class="form-control" name="phone" id="inputEmailAddress" type="text" aria-describedby="emailHelp"
                         placeholder="Nomor WhatsApp" />
+                        <small class="text-red">*harus berupa angka</small>
                 </div>
                 <!-- Form Row    -->
                 <div class="row gx-3">

@@ -185,9 +185,13 @@
                                                                         name="pasfoto" id="imgInp" type="file"
                                                                         placeholder="Enter your location"
                                                                         value="San Francisco, CA" />
+
                                                                     <span class="text-danger">
                                                                         @error('pasfoto')
                                                                             {{ $message }}
+                                                                            @else
+                                        <span><small class="text-danger">*File berupa gambar&#40; .png / .jpg &#41; dan tidak lebih dari 1MB</small></span>
+
                                                                         @enderror
 
                                                                     </span>
